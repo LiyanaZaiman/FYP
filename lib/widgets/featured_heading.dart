@@ -27,7 +27,7 @@ class FeaturedHeading extends StatelessWidget {
                   fontSize: 36,
                   fontFamily: 'Raleway',
                   fontWeight: FontWeight.bold,
-                  color:Color(0xFF263b5e)
+                  color:Color(0xFF077bd7)
               ),
             ),
                 Expanded(

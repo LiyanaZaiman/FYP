@@ -45,7 +45,7 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
         ),
       );
       Widget spacer = SizedBox(
-        height: widget.screenSize.height / 20,
+        height: widget.screenSize.height / 200,
         child: VerticalDivider(
           width: 1,
           color: Colors.blueGrey[100],

@@ -28,7 +28,7 @@ class TopBarContents extends StatefulWidget{
       return Container(
         color: Colors.white.withOpacity(widget.opacity),
         child: Padding(
-          padding: EdgeInsets.all(20),
+          padding: EdgeInsets.all(15),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -41,7 +41,7 @@ class TopBarContents extends StatefulWidget{
                       'Choongs Printing Shop',
                       style: TextStyle(
                         color: Color(0xFF077bd7),
-                        fontSize: 24,
+                        fontSize: 23.5,
                         fontFamily: 'Raleway',
                         fontWeight: FontWeight.w900,
                         letterSpacing: 3,
