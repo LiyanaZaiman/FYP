@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_controller.dart';
+import 'package:online_printing/widgets/featured_heading.dart';
 import 'package:online_printing/widgets/top_bar_contents.dart';
 import 'package:online_printing/widgets/floating_quick_access_bar.dart';
+// import 'package:online_printing/widgets/featured_heading.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -29,7 +30,7 @@ class _HomePageState extends State<HomePage> {
 Widget build(BuildContext context) {
   var screenSize = MediaQuery.of(context).size;
   _opacity = _scrollPosition < screenSize.height * 0.40
-  ?_scrollPosition / (screenSize.height * 0.48) : 1;
+  ?_scrollPosition / (screenSize.height * 0.40) : 1;
 
   return Scaffold (
     extendBodyBehindAppBar: true,
@@ -40,14 +41,16 @@ Widget build(BuildContext context) {
     body: Column(children: [
       Stack(children: [ Container(
         child: SizedBox(
-          height: screenSize.height * 1.0,
+          height: screenSize.height * 0.80,
           width: screenSize.width,
           child: Image.asset('assets/images/printing_images.png',
           fit: BoxFit.cover,)
         ),
+      ),
+      FloatingQuickAccessBar(screenSize: screenSize),
+      FeaturedHeading(screenSize: screenSize)
+      ]
       )
-      // FloatingQuickAccessBar(screenSize: screenSize),
-      ],)
     ],)
   );
 }

@@ -30,7 +30,7 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
     for (int i = 0; i < items.length; i++) {
       Widget elementTile = InkWell(
         splashColor: Colors.transparent,
-        hoverColor: Colors.blue,
+        hoverColor: Colors.transparent,
         onHover: (value) {
           setState(() {
             value ? _isHovering[i] = true : _isHovering[i] = false;
@@ -79,8 +79,8 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
           elevation: 5,
           child: Padding(
             padding: EdgeInsets.only(
-              top: this.widget.screenSize.height/50,
-              bottom: this.widget.screenSize.height/50,
+              top: this.widget.screenSize.height/20,
+              bottom: this.widget.screenSize.height/20,
               ),
               child:Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
