@@ -118,7 +118,7 @@ class _MainCarouselState extends State<MainCarousel> {
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
                                     InkWell(
-                                      splashColor: Colors.transparent,
+                                      splashColor: Colors.transparent, 
                                       hoverColor: Colors.transparent,
                                       onHover: (value) {
                                         setState(() {

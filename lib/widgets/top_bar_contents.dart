@@ -173,7 +173,7 @@ class TopBarContents extends StatefulWidget{
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        'Order',
+                        'Login/Signup',
                         style: TextStyle(
                           color: _isHovering[3]
                           ? Color(0xFF077bd7)
