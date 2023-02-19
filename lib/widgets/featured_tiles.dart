@@ -93,7 +93,7 @@ class FeaturedTiles extends StatelessWidget {
                             fit: BoxFit.cover,
                             image: AssetImage(
                               assets[pageIndex],
-                             // fit: BoxFit.cover,
+                             //fit: BoxFit.cover,
                             ),
                             ),
                             boxShadow: [
