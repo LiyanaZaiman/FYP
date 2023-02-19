@@ -38,7 +38,12 @@ class BottomBar extends StatelessWidget {
         ),
       padding: EdgeInsets.all(30),
       //color: Colors.blueGrey[900],
-      child: Column(
+      child: 
+      MediaQuery.of(context).size.width<800?
+      Column(
+       children: [], 
+      ):
+      Column(
               children: [
                 Row(
                   mainAxisSize: MainAxisSize.max,
@@ -76,7 +81,7 @@ class BottomBar extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 Text(
-                  'Copyright © 2022 | Choongs Printing Shop',
+                  'Copyright © 2023 | Choongs Printing Shop',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 14,

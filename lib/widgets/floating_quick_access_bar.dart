@@ -75,7 +75,46 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
               ? widget.screenSize.width / 12
               : widget.screenSize.width / 5,
         ),
-        child: Card(
+        child: widget.screenSize.width <800? Column(
+          children: [
+            for(int i=0; i<items.length; i++)
+            Padding(
+              padding: EdgeInsets.only(bottom: widget.screenSize.height/40),
+              child: Card(
+                elevation: 4,
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    top: widget.screenSize.height/45,
+                    bottom: widget.screenSize.height/45,
+                    left: widget.screenSize.width/40,
+                    ),
+                  child: Row(
+                    children: [
+                      Icon(icons[i]),
+                      SizedBox(width: widget.screenSize.width/50),
+                      InkWell(
+                        splashColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        onHover: (value) {
+                          setState(() {
+                            value ? _isHovering[i] = true : _isHovering[i] = false;
+                          });
+                        },
+                        onTap: () {},
+                        child: Text(
+                          items[i],
+                          style: TextStyle(
+                            color: _isHovering[i] ? Colors.blueGrey[900] : Colors.blueGrey,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              ),
+            )
+          ],): 
+          Card(
           elevation: 5,
           child: Padding(
             padding: EdgeInsets.only(
