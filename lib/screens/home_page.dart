@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:online_printing/screens/order_page.dart';
 import 'package:online_printing/widgets/bottom_bar.dart';
 import 'package:online_printing/widgets/featured_heading.dart';
 import 'package:online_printing/widgets/featured_tiles.dart';
@@ -254,16 +255,21 @@ Widget build(BuildContext context) {
         Column(
           children: [
           //FloatingQuickAccessBar(screenSize: screenSize),
-          ElevatedButton(
-            child: Text('Order Now'),
-            onPressed: () {
-              Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const order_page())),
-              }, 
+          Padding(
+            padding: EdgeInsets.only(
+              top: screenSize.height * 0.6,
             ),
-          FeaturedHeading(screenSize: screenSize),
+            child: ElevatedButton(
+              child: Text('Order Now'),
+              onPressed: () {
+                Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => OrderPage()));
+                }, 
+              ),
+          ),
           FeaturedTiles(screenSize: screenSize),
+          FeaturedHeading(screenSize: screenSize),
           MainHeading(screenSize: screenSize),
           MainCarousel(),
           SizedBox(height: screenSize.height / 10,),

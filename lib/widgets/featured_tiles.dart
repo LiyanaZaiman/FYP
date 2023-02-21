@@ -15,7 +15,7 @@ class FeaturedTiles extends StatelessWidget {
     'assets/images/test3.jpeg',
   ];
 
-  final List<String> title = ['Sci-fi', 'Photography', 'Romance'];
+  final List<String> title = ['Fast', 'Easy', 'Flexible'];
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +73,7 @@ class FeaturedTiles extends StatelessWidget {
         : */
         screenSize.width< 800? Padding(
           padding: EdgeInsets.only(
-            top:screenSize.height/50),
+            top:screenSize.height/60), //top:screenSize.height/50),
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
@@ -118,7 +118,7 @@ class FeaturedTiles extends StatelessWidget {
         ):
         Padding(
             padding: EdgeInsets.only(
-              top: screenSize.height * 0.06,
+              top: screenSize.height * 0.2,
               left: screenSize.width / 15,
               right: screenSize.width / 15,
             ),

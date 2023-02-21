@@ -19,7 +19,7 @@ class _MainCarouselState extends State<MainCarousel> {
   int _current = 0;
 
   final List<String> images = [
-    'assets/images/asia.jpg',
+    'assets/images/asia.jpgx',
     'assets/images/africa.jpg',
     'assets/images/europe.jpg',
     'assets/images/south_america.jpg',

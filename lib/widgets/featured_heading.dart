@@ -13,14 +13,14 @@ class FeaturedHeading extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-        top: screenSize.height * 0.06,
+        top: screenSize.height / 6, //screenSize.height * 0.06
         left: screenSize.width / 15,
         right: screenSize.width / 15,
       ),
       child: screenSize.width <800?Column(
         children: [
           Text(
-              'Featured',
+              'Price and Product List',
               style: TextStyle(
                   fontSize: 36,
                   fontFamily: 'Raleway',
@@ -39,7 +39,7 @@ class FeaturedHeading extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
               Text(
-              'Featured',
+              'Price and Product List',
               style: TextStyle(
                   fontSize: 36,
                   fontFamily: 'Raleway',

@@ -11,4 +11,18 @@ import 'package:online_printing/widgets/carousel.dart';
 import 'package:online_printing/widgets/menu_drawer.dart';
 import 'package:flutter/material.dart';
 
-class
+class  OrderPage extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+	return Scaffold(
+    body: Center(
+      child: ElevatedButton(
+        onPressed: (){
+        child: Navigator.pop(context);},
+        child: Text('Go Back'), ),
+    ),
+	);
+  
+  
+}
+}
