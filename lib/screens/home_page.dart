@@ -221,7 +221,7 @@ Widget build(BuildContext context) {
       elevation: 0,
       backgroundColor: Colors.white.withOpacity(_opacity),
       title:  Text(
-                      'Choongs Printing Shop',
+                      'Choong\'s Printing Shop',
                       style: TextStyle(
                         color: Color(0xFF077bd7),
                         fontSize: 23.5,
@@ -245,13 +245,23 @@ Widget build(BuildContext context) {
           child: SizedBox(
             height: screenSize.height * 0.80,
             width: screenSize.width,
-            child: Image.asset('assets/images/printing_images.png',
-            fit: BoxFit.cover,)
+            child: Image.asset(
+              'assets/images/printing_images.png',
+              fit: BoxFit.cover,
+              )
           ),
         ),
         Column(
           children: [
-          FloatingQuickAccessBar(screenSize: screenSize),
+          //FloatingQuickAccessBar(screenSize: screenSize),
+          ElevatedButton(
+            child: Text('Order Now'),
+            onPressed: () {
+              Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const order_page())),
+              }, 
+            ),
           FeaturedHeading(screenSize: screenSize),
           FeaturedTiles(screenSize: screenSize),
           MainHeading(screenSize: screenSize),
