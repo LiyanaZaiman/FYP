@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:online_printing/screens/order_page.dart';
 import 'package:online_printing/widgets/bottom_bar.dart';
+import 'package:online_printing/widgets/customer_details.dart';
 import 'package:online_printing/widgets/featured_heading.dart';
 import 'package:online_printing/widgets/featured_tiles.dart';
 import 'package:online_printing/widgets/top_bar_contents.dart';
@@ -254,6 +255,7 @@ Widget build(BuildContext context) {
         ),
         Column(
           children: [
+          CustomerDetails(screenSize: screenSize),
           //FloatingQuickAccessBar(screenSize: screenSize),
           Padding(
             padding: EdgeInsets.only(
