@@ -253,22 +253,53 @@ Widget build(BuildContext context) {
               )
           ),
         ),
+        /*********************Other Widgets Starts Here************************/
         Column(
           children: [
-          CustomerDetails(screenSize: screenSize),
+          //CustomerDetails(screenSize: screenSize),
           //FloatingQuickAccessBar(screenSize: screenSize),
-          Padding(
-            padding: EdgeInsets.only(
-              top: screenSize.height * 0.6,
-            ),
-            child: ElevatedButton(
-              child: Text('Order Now'),
-              onPressed: () {
-                Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => OrderPage()));
-                }, 
+          Stack(
+            children: [
+                Container(
+                width: 1200,
+                height: 600,
+                color: Colors.white70,
               ),
+              SizedBox( // <-- SEE HERE
+                width: 200,
+                child: TextField(
+                decoration: InputDecoration(
+                hintText: 'name',
+                labelText: 'Enter Name',
+                border: OutlineInputBorder(),
+                ),
+              ),
+            ),
+              Center(
+                child: Padding(
+                 padding: EdgeInsets.only(
+                  top: 500,
+                 ),
+                  child: ElevatedButton(
+                    child: Text('Order Now'),
+                    onPressed: () {
+                      Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => OrderPage()));
+                      }, 
+                    style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blueAccent,
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 30, vertical: 16),
+                    textStyle:
+                        const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                    ),
+                ),
+              ),
+              
+              
+            
+            ],
           ),
           FeaturedTiles(screenSize: screenSize),
           FeaturedHeading(screenSize: screenSize),
