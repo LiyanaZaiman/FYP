@@ -13,6 +13,7 @@ import 'package:online_printing/widgets/carousel.dart';
 import 'package:online_printing/widgets/menu_drawer.dart';
 import 'package:flutter/material.dart';
 
+
 class MainCarousel extends StatefulWidget {
   @override
   _MainCarouselState createState() => _MainCarouselState();
@@ -212,6 +213,7 @@ class _HomePageState extends State<HomePage> {
 
 @override
 Widget build(BuildContext context) {
+  int selectedValue = 0; // declare a variable to hold the selected value
   var screenSize = MediaQuery.of(context).size;
   _opacity = _scrollPosition < screenSize.height * 0.40
   ?_scrollPosition / (screenSize.height * 0.40) : 1;
@@ -223,7 +225,7 @@ Widget build(BuildContext context) {
       elevation: 0,
       backgroundColor: Colors.white.withOpacity(_opacity),
       title:  Text(
-                      'Choong\'s Printing Shop',
+                      'Online Printing Service',
                       style: TextStyle(
                         color: Color(0xFF077bd7),
                         fontSize: 23.5,
@@ -265,6 +267,21 @@ Widget build(BuildContext context) {
                 height: 700,
                 color: Colors.white70,
               ),
+              //Label - Customer information
+              Center(
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    top: 70,
+                    ),
+                  child: Text(
+                  'Customer Information',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
               //Name
               Padding(
                 padding: const EdgeInsets.only(
@@ -300,7 +317,7 @@ Widget build(BuildContext context) {
                 ),
                           ),
               ),
-              //Label
+              //Label - Delivery Options
               Padding(
                 padding: EdgeInsets.only(
                   top: 250,
@@ -312,6 +329,35 @@ Widget build(BuildContext context) {
                   fontSize: 14,
                   fontWeight: FontWeight.bold,
                   ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(
+                  top: 250,
+                  left: 250,
+                ),
+                child: RadioListTile(
+                value: 'delivery',
+                title: Text('delivery'),
+                groupValue: 'delivery',
+                onChanged: (value) {
+                  setState(() {
+                    });
+                  },
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(
+                  top: 250,
+                  left: 450,),
+                child: RadioListTile(
+                value: 'Self Collect',
+                title: Text('self collect'),
+                groupValue: 'self collect',
+                onChanged: (value) {
+                  setState(() {
+                    });
+                  },
                 ),
               ),
               //Address Line 1
@@ -368,6 +414,24 @@ Widget build(BuildContext context) {
                 ),
                           ),
               ),
+                //State
+                Padding(
+                padding: const EdgeInsets.only(
+                  top: 460,
+                  left: 600,
+                ),
+                child: SizedBox(
+                  width: 200,
+                  child: TextField(
+                  decoration: InputDecoration(
+                  hintText: 'Enter your state',
+                  labelText: 'State',
+                  border: OutlineInputBorder(),
+                  ),
+                  keyboardType: TextInputType.number,
+                ),
+                          ),
+              ),
               //Button
               Center(
                 child: Padding(
@@ -390,9 +454,6 @@ Widget build(BuildContext context) {
                     ),
                 ),
               ),
-              
-              
-            
             ],
           ),
           FeaturedTiles(screenSize: screenSize),
