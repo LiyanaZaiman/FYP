@@ -225,15 +225,15 @@ Widget build(BuildContext context) {
       elevation: 0,
       backgroundColor: Colors.white.withOpacity(_opacity),
       title:  Text(
-                      'Online Printing Service',
-                      style: TextStyle(
-                        color: Color(0xFF077bd7),
-                        fontSize: 23.5,
-                        fontFamily: 'Raleway',
-                        fontWeight: FontWeight.w900,
-                        letterSpacing: 3,
-                       ),
-                      ),
+                  'Online Printing Service',
+                  style: TextStyle(
+                    color: Color(0xFF077bd7),
+                    fontSize: 23.5,
+                    fontFamily: 'Raleway',
+                    fontWeight: FontWeight.w900,
+                    letterSpacing: 3,
+                    ),
+                  ),
     ): 
     PreferredSize( //To make the screen responsive. From Web sie to Moble App size
       preferredSize: Size(screenSize.width, 70),

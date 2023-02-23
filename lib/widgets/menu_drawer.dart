@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:online_printing/screens/order_page.dart';
 
-class MenuDrawer extends StatelessWidget {
-  const MenuDrawer({
-    Key? key,
-  }) : super(key: key);
+class MenuDrawer extends StatefulWidget {
+  @override
+  _MenuDrawer createState() => _MenuDrawer(); 
+  }
 
+  class _MenuDrawer extends State<MenuDrawer> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -18,11 +20,15 @@ class MenuDrawer extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               InkWell(
-                onTap: () {},
-                child: Text(
+                 child: Text(
                   'Order',
                   style: TextStyle(color: Colors.white, fontSize: 22),
                 ),
+                onTap: () {                      
+                      Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => OrderPage()));
+                      },
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 5.0, bottom: 5.0),
@@ -70,7 +76,7 @@ class MenuDrawer extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.bottomCenter,
                   child: Text(
-                    'Copyright © 2021 | DBestech',
+                    'Copyright © 2023 | Online Printing System',
                     style: TextStyle(
                       color: Colors.white60,
                       fontSize: 14,

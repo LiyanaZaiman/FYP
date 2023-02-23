@@ -9,7 +9,9 @@ import 'package:carousel_slider/carousel_controller.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:online_printing/widgets/carousel.dart';
 import 'package:online_printing/widgets/menu_drawer.dart';
+import 'package:online_printing/widgets/responsive.dart';
 import 'package:flutter/material.dart';
+import 'home_page.dart';
 
 class  OrderPage extends StatelessWidget{
   @override
@@ -17,9 +19,11 @@ class  OrderPage extends StatelessWidget{
 	return Scaffold(
     body: Center(
       child: ElevatedButton(
+        child: Text('Go Back'),
         onPressed: (){
-        child: Navigator.pop(context);},
-        child: Text('Go Back'), ),
+        Navigator.pop(context,
+                      MaterialPageRoute(builder: (context) => HomePage()));},
+         ),
     ),
 	);
   
