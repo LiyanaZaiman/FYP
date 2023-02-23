@@ -25,8 +25,6 @@ class  OrderPage extends StatelessWidget{
                       MaterialPageRoute(builder: (context) => HomePage()));},
          ),
     ),
-	);
-  
-  
+	); 
 }
 }

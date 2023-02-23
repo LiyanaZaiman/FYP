@@ -10,9 +10,9 @@ class FeaturedTiles extends StatelessWidget {
   final Size screenSize;
 
   final List<String> assets = [
-    'assets/images/test1.jpeg',
-    'assets/images/test2.jpeg',
-    'assets/images/test3.jpeg',
+    'assets/images/test1.png',
+    'assets/images/test2.png',
+    'assets/images/test3.png',
   ];
 
   final List<String> title = ['Fast', 'Easy', 'Flexible'];

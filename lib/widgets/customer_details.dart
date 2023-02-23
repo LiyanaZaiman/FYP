@@ -12,7 +12,7 @@ class CustomerDetails extends StatefulWidget {
     return Stack(
       children: [
           Container(
-          width: 1200,
+          width: 1600,
           height: 700,
           color: Colors.white70,
         ),
