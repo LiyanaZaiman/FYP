@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:online_printing/screens/home_page.dart';
+
+import '../screens/order_page.dart';
 
 class TopBarContents extends StatefulWidget{
   final double opacity;
@@ -38,7 +41,7 @@ class TopBarContents extends StatefulWidget{
                   children: [
                     SizedBox(width: screenSize.width/8,),
                     Text(
-                      'Choongs Printing Shop',
+                      'Online Printing Service',
                       style: TextStyle(
                         color: Color(0xFF077bd7),
                         fontSize: 23.5,
@@ -56,8 +59,13 @@ class TopBarContents extends StatefulWidget{
                       : _isHovering[0] = false;
                     });
                   },
-                  onTap: () {},
-                  child: Column(
+                      onTap: () {                      
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) =>HomePage()));
+                      },
+                  child: 
+                  Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
@@ -70,6 +78,7 @@ class TopBarContents extends StatefulWidget{
                           fontSize: 16
                         ),
                       ),
+                      
                       SizedBox(height: 5),
                       Visibility(
                         maintainAnimation: true,
@@ -84,6 +93,7 @@ class TopBarContents extends StatefulWidget{
                       )
                     ],
                   ),
+                  
                   ),
                     SizedBox(width: screenSize.width  / 15),
                     InkWell (
@@ -94,7 +104,11 @@ class TopBarContents extends StatefulWidget{
                       : _isHovering[1] = false;
                     });
                   },
-                  onTap: () {},
+                  onTap: () {                                        
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) =>OrderPage()));
+                      },
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -131,7 +145,10 @@ class TopBarContents extends StatefulWidget{
                       : _isHovering[2] = false;
                     });
                   },
-                  onTap: () {},
+                  onTap: () {                    
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) =>OrderPage()));},
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -168,7 +185,11 @@ class TopBarContents extends StatefulWidget{
                       : _isHovering[3] = false;
                     });
                   },
-                  onTap: () {},
+                  onTap: () {
+                      Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) =>OrderPage()));
+                  },
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
