@@ -224,7 +224,7 @@ Widget build(BuildContext context) {
       elevation: 0,
       backgroundColor: Colors.white.withOpacity(_opacity),
       title:  Text(
-                  'Online Printing Service',
+                  'Choong\'s Printing Service',
                   style: TextStyle(
                     color: Color(0xFF077bd7),
                     fontSize: 23.5,
