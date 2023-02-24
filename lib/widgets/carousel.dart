@@ -24,16 +24,15 @@ class _MainCarouselState extends State<MainCarousel> {
     'assets/images/europe.jpg',
     'assets/images/south_america.jpg',
     'assets/images/australia.jpg',
-    'assets/images/antarctica.jpg',
+    //'assets/images/antarctica.jpg',
   ];
 
   final List<String> places = [
-    'ASIA',
-    'AFRICA',
-    'EUROPE',
-    'SOUTH AMERICA',
-    'AUSTRALIA',
-    'ANTARCTICA',
+    'BLACK & WHITE',
+    'COLOUR',
+    'A4',
+    'A5',
+    'A3',
   ];
 
   List<Widget> generateImageTiles(screenSize) {

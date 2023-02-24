@@ -18,7 +18,7 @@ class MainHeading                                                               
             ),
             width: screenSize.width,
             child: Text(
-              'Knowledge diversity',
+              'Different types of option',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 40,
