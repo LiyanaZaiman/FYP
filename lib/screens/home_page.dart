@@ -205,7 +205,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-    TextEditingController user = TextEditingController();
+  TextEditingController user = TextEditingController();
   TextEditingController pass = TextEditingController();
   final ScrollController _scrollController = ScrollController();
   double _scrollPosition = 0;
@@ -229,16 +229,17 @@ class _HomePageState extends State<HomePage> {
     });
     var data = json.decode(response.body);
     if (data == "Success") {
-      FlutterToast(context).showToast(
-          child: Text(
+      Fluttertoast.showToast(
+        msg:
         'Login Successful',
-        style: TextStyle(fontSize: 25, color: Colors.green),
-      ));
-      Navigator.push(context, MaterialPageRoute(builder: (context)=>DashBoard(),),);
+        fontSize: 25, 
+        backgroundColor: Colors.green);
+      Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage(),),);
     } else {
-      FlutterToast(context).showToast(
-          child: Text('Username and password invalid',
-              style: TextStyle(fontSize: 25, color: Colors.red)));
+      Fluttertoast.showToast(
+        msg:'Username and password invalid',
+        fontSize: 25, 
+        backgroundColor: Colors.red);
     }
   }
 

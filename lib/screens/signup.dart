@@ -18,24 +18,36 @@ class _SignUpState extends State<SignUp> {
   TextEditingController pass = TextEditingController();
 
   Future register() async {
-    var url = "http://172.18.82.141/flutter_api/register.php";
-    var response = await http.post(url as Uri, body: {
+    var url = Uri.http("172.18.82.141", '/flutter_api/login.php', {'q': '{http}'});
+    var response = await http.post(url, body: {
       "username": user.text,
       "password": pass.text,
     });
     var data = json.decode(response.body);
     if (data == "Error") {
-    //   FlutterToast(context).showToast(
-    //       child: Text(
-    //     'User allready exit!',
-    //     style: TextStyle(fontSize: 25, color: Colors.red),
-    //   ));
-    // } else {
-    //   FlutterToast(context).showToast(
-    //       child: Text('Registration Successful',
-    //           style: TextStyle(fontSize: 25, color: Colors.green)));
-    //           Navigator.push(context, MaterialPageRoute(builder: (context)=>DashBoard(),),);
+      Fluttertoast.showToast(
+          msg:
+        'User allready exit!',
+        backgroundColor: Colors.red,
+        fontSize: 25,
+      );
+    } else {
+      Fluttertoast.showToast(
+          msg:'Registration Successful',
+          fontSize: 25, 
+          backgroundColor: Colors.green);
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginSignup(),),);
     }
+    //Example from Pub Dev
+    // Fluttertoast.showToast(
+    //     msg: "This is Center Short Toast",
+    //     toastLength: Toast.LENGTH_SHORT,
+    //     gravity: ToastGravity.CENTER,
+    //     timeInSecForIosWeb: 1,
+    //     backgroundColor: Colors.red,
+    //     textColor: Colors.white,
+    //     fontSize: 16.0
+    // );
   }
 
   @override
