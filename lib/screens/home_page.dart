@@ -222,8 +222,8 @@ class _HomePageState extends State<HomePage> {
     super.initState();
   }
    Future login() async {
-    var url = "http://172.18.82.141/flutter_api/login.php";
-    var response = await http.post(url as Uri, body: {
+    var url = Uri.http("http://172.18.82.141/flutter_api/login.php");
+    var response = await http.post(url, body: {
       "username": user.text,
       "password": pass.text,
     });
@@ -232,12 +232,18 @@ class _HomePageState extends State<HomePage> {
       Fluttertoast.showToast(
         msg:
         'Login Successful',
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
         fontSize: 25, 
         backgroundColor: Colors.green);
       Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage(),),);
     } else {
       Fluttertoast.showToast(
         msg:'Username and password invalid',
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
         fontSize: 25, 
         backgroundColor: Colors.red);
     }

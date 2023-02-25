@@ -17,8 +17,9 @@ class _SignUpState extends State<SignUp> {
   TextEditingController user = TextEditingController();
   TextEditingController pass = TextEditingController();
 
-  Future register() async {
-    var url = Uri.http('http://172.18.82.141/flutter_api/register.php');
+  Future<void> register() async {
+    //ipaddress: 172.18.82.141
+    var url = Uri.parse('https://172.18.82.141/register.php');
     var response = await http.post(url, body: {
       "username": user.text,
       "password": pass.text,
@@ -28,12 +29,19 @@ class _SignUpState extends State<SignUp> {
       Fluttertoast.showToast(
         msg:
         'User allready exit!',
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
         backgroundColor: Colors.red,
         fontSize: 25,
       );
     } else {
+      Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginSignup(),),);
       Fluttertoast.showToast(
           msg:'Registration Successful',
+          toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
           fontSize: 25, 
           backgroundColor: Colors.green);
               Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginSignup(),),);
@@ -131,7 +139,7 @@ class _SignUpState extends State<SignUp> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => HomePage(),
+                            builder: (context) => LoginSignup(),
                           ),
                         );
                       },
