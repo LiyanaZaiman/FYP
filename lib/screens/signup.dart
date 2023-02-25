@@ -18,7 +18,7 @@ class _SignUpState extends State<SignUp> {
   TextEditingController pass = TextEditingController();
 
   Future register() async {
-    var url = Uri.http("172.18.82.141", '/flutter_api/login.php', {'q': '{http}'});
+    var url = Uri.http('http://172.18.82.141/flutter_api/register.php');
     var response = await http.post(url, body: {
       "username": user.text,
       "password": pass.text,
@@ -26,7 +26,7 @@ class _SignUpState extends State<SignUp> {
     var data = json.decode(response.body);
     if (data == "Error") {
       Fluttertoast.showToast(
-          msg:
+        msg:
         'User allready exit!',
         backgroundColor: Colors.red,
         fontSize: 25,
@@ -82,18 +82,19 @@ class _SignUpState extends State<SignUp> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
+                  controller: user,
                   decoration: InputDecoration(
                     labelText: 'Username',
                     prefixIcon: Icon(Icons.person),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8)),
                   ),
-                  controller: user,
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
+                  controller: pass,
                   obscureText: true,
                   decoration: InputDecoration(
                     labelText: 'Password',
@@ -101,7 +102,6 @@ class _SignUpState extends State<SignUp> {
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8)),
                   ),
-                  controller: pass,
                 ),
               ),
               Row(

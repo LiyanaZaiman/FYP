@@ -222,7 +222,7 @@ class _HomePageState extends State<HomePage> {
     super.initState();
   }
    Future login() async {
-    var url = "http://172.18.82.141/flutter_api/register.php";
+    var url = "http://172.18.82.141/flutter_api/login.php";
     var response = await http.post(url as Uri, body: {
       "username": user.text,
       "password": pass.text,
