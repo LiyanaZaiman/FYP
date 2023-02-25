@@ -10,10 +10,10 @@ import 'package:online_printing/screens/login_signup.dart';
 
 class SignUp extends StatefulWidget {
   @override
-  _SignUp createState() => _SignUp();
+  _SignUpState createState() => _SignUpState();
 }
 
-class _SignUp extends State<SignUp> {
+class _SignUpState extends State<SignUp> {
   TextEditingController user = TextEditingController();
   TextEditingController pass = TextEditingController();
 
