@@ -257,7 +257,7 @@ Widget build(BuildContext context) {
         /*********************Other Widgets Starts Here************************/
         Column(
           children: [
-          CustomerDetails(),
+          //CustomerDetails(),
           FeaturedTiles(screenSize: screenSize),
           FeaturedHeading(screenSize: screenSize),
           MainHeading(screenSize: screenSize),

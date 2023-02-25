@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:online_printing/screens/aboutUs.dart';
 import 'package:online_printing/screens/home_page.dart';
 import 'package:online_printing/screens/login_signup.dart';
 
@@ -61,7 +62,7 @@ class TopBarContents extends StatefulWidget{
                     });
                   },
                       onTap: () {                      
-                    Navigator.push(
+                    Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(builder: (context) =>HomePage()));
                       },
@@ -106,7 +107,7 @@ class TopBarContents extends StatefulWidget{
                     });
                   },
                   onTap: () {                                        
-                    Navigator.push(
+                    Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(builder: (context) =>OrderPage()));
                       },
@@ -147,9 +148,9 @@ class TopBarContents extends StatefulWidget{
                     });
                   },
                   onTap: () {                    
-                    Navigator.push(
+                    Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(builder: (context) =>OrderPage()));},
+                      MaterialPageRoute(builder: (context) =>AboutUs()));},
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -187,7 +188,7 @@ class TopBarContents extends StatefulWidget{
                     });
                   },
                   onTap: () {
-                      Navigator.push(
+                      Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(builder: (context) =>LoginSignup()));
                   },

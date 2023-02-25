@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:online_printing/screens/signup.dart';
 import 'package:online_printing/widgets/bottom_bar.dart';
 import 'package:online_printing/widgets/featured_heading.dart';
 import 'package:online_printing/widgets/featured_tiles.dart';
@@ -137,8 +138,10 @@ class _LoginSignupState extends State<LoginSignup> {
                         'Sign Up',
                         style: TextStyle(fontSize: 20),
                       ),
-                      onPressed: () {
-                        //signup screen
+                      onPressed: () {                                    
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) =>SignUp()));
                       },
                     )
                   ],
