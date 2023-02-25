@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:online_printing/screens/order_page.dart';
 import 'package:online_printing/widgets/bottom_bar.dart';
@@ -12,6 +14,14 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:online_printing/widgets/carousel.dart';
 import 'package:online_printing/widgets/menu_drawer.dart';
 import 'package:flutter/material.dart';
+
+import 'dart:convert';
+
+import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:http/http.dart' as http;
+import 'package:online_printing/screens/home_page.dart';
+import 'package:online_printing/screens/login_signup.dart';
 
 
 class MainCarousel extends StatefulWidget {
@@ -195,6 +205,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+    TextEditingController user = TextEditingController();
+  TextEditingController pass = TextEditingController();
   final ScrollController _scrollController = ScrollController();
   double _scrollPosition = 0;
   double _opacity = 0;
@@ -208,6 +220,26 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     _scrollController.addListener(_scrollListener);
     super.initState();
+  }
+   Future login() async {
+    var url = "http://172.18.82.141/flutter_api/register.php";
+    var response = await http.post(url as Uri, body: {
+      "username": user.text,
+      "password": pass.text,
+    });
+    var data = json.decode(response.body);
+    if (data == "Success") {
+      FlutterToast(context).showToast(
+          child: Text(
+        'Login Successful',
+        style: TextStyle(fontSize: 25, color: Colors.green),
+      ));
+      Navigator.push(context, MaterialPageRoute(builder: (context)=>DashBoard(),),);
+    } else {
+      FlutterToast(context).showToast(
+          child: Text('Username and password invalid',
+              style: TextStyle(fontSize: 25, color: Colors.red)));
+    }
   }
 
 @override
