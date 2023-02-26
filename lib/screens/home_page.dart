@@ -15,14 +15,6 @@ import 'package:online_printing/widgets/carousel.dart';
 import 'package:online_printing/widgets/menu_drawer.dart';
 import 'package:flutter/material.dart';
 
-import 'dart:convert';
-
-import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:http/http.dart' as http;
-import 'package:online_printing/screens/home_page.dart';
-import 'package:online_printing/screens/login_signup.dart';
-
 
 class MainCarousel extends StatefulWidget {
   @override
@@ -205,8 +197,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  TextEditingController user = TextEditingController();
-  TextEditingController pass = TextEditingController();
   final ScrollController _scrollController = ScrollController();
   double _scrollPosition = 0;
   double _opacity = 0;
@@ -220,33 +210,6 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     _scrollController.addListener(_scrollListener);
     super.initState();
-  }
-   Future login() async {
-    var url = Uri.http("http://172.18.82.141/flutter_api/login.php");
-    var response = await http.post(url, body: {
-      "username": user.text,
-      "password": pass.text,
-    });
-    var data = json.decode(response.body);
-    if (data == "Success") {
-      Fluttertoast.showToast(
-        msg:
-        'Login Successful',
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.CENTER,
-        timeInSecForIosWeb: 1,
-        fontSize: 25, 
-        backgroundColor: Colors.green);
-      Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage(),),);
-    } else {
-      Fluttertoast.showToast(
-        msg:'Username and password invalid',
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.CENTER,
-        timeInSecForIosWeb: 1,
-        fontSize: 25, 
-        backgroundColor: Colors.red);
-    }
   }
 
 @override

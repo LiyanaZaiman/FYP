@@ -14,6 +14,14 @@ import 'package:online_printing/widgets/responsive.dart';
 import 'package:flutter/material.dart';
 import 'home_page.dart';
 
+import 'dart:convert';
+
+import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:http/http.dart' as http;
+import 'package:online_printing/screens/home_page.dart';
+import 'package:online_printing/screens/login_signup.dart';
+
 
 class LoginSignup extends StatefulWidget {
   const LoginSignup({super.key});
@@ -23,8 +31,8 @@ class LoginSignup extends StatefulWidget {
 }
 
 class _LoginSignupState extends State<LoginSignup> {
-  TextEditingController nameController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  TextEditingController user = TextEditingController();
+  TextEditingController pass = TextEditingController();
     final ScrollController _scrollController = ScrollController();
   double _scrollPosition = 0;
   double _opacity = 0;
@@ -40,6 +48,35 @@ class _LoginSignupState extends State<LoginSignup> {
     _scrollController.addListener(_scrollListener);
     super.initState();
   }
+
+     Future login() async {
+    var url = Uri.http("http://172.18.82.141/flutter_api/login.php");
+    var response = await http.post(url, body: {
+      "username": user.text,
+      "password": pass.text,
+    });
+    var data = json.decode(response.body);
+    if (data == "Success") {
+      Fluttertoast.showToast(
+        msg:
+        'Login Successful',
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+        fontSize: 25, 
+        backgroundColor: Colors.green);
+      Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage(),),);
+    } else {
+      Fluttertoast.showToast(
+        msg:'Username and password invalid',
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+        fontSize: 25, 
+        backgroundColor: Colors.red);
+    }
+  }
+
   
   @override
   Widget build(BuildContext context) {
@@ -95,7 +132,7 @@ class _LoginSignupState extends State<LoginSignup> {
                 Container(
                   padding: const EdgeInsets.all(10),
                   child: TextField(
-                    controller: nameController,
+                    controller: user,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'User Name',
@@ -106,7 +143,7 @@ class _LoginSignupState extends State<LoginSignup> {
                   padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
                   child: TextField(
                     obscureText: true,
-                    controller: passwordController,
+                    controller: pass,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Password',
@@ -125,8 +162,7 @@ class _LoginSignupState extends State<LoginSignup> {
                     child: ElevatedButton(
                       child: const Text('Login'),
                       onPressed: () {
-                        print(nameController.text);
-                        print(passwordController.text);
+                        login();
                       },
                     )
                 ),

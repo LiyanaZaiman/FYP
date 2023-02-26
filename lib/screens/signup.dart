@@ -14,12 +14,12 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-  TextEditingController user = TextEditingController();
-  TextEditingController pass = TextEditingController();
+  final user = TextEditingController();
+  final pass = TextEditingController();
 
   Future<void> register() async {
     //ipaddress: 172.18.82.141
-    var url = Uri.parse('https://172.18.82.141/register.php');
+    var url = Uri.http('https://localhost/register.php');
     var response = await http.post(url, body: {
       "username": user.text,
       "password": pass.text,
