@@ -2,12 +2,12 @@ import 'package:online_printing/screens/order_page.dart';
 import 'package:online_printing/widgets/responsive.dart';
 import 'package:flutter/material.dart';
 
-class CustomerDetails extends StatefulWidget {
+class OrderDetails extends StatefulWidget {
   @override
-  _CustomerDetails createState() => _CustomerDetails(); 
+  _OrderDetails createState() => _OrderDetails(); 
 }
 
-  class _CustomerDetails extends State<CustomerDetails> {
+  class _OrderDetails extends State<OrderDetails> {
   @override
   Widget build(BuildContext context) {
     return  Card(
@@ -21,44 +21,44 @@ class CustomerDetails extends StatefulWidget {
                 Padding(
                 padding: EdgeInsets.all(10.0),
                   child: Text(
-                  'Customer Information',
+                  'Order Information',
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
-              //Name
+              //File Upload
               Padding(
                 padding: const EdgeInsets.all(10),
                 child: TextField(
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
-                    labelText: 'Enter Name',
-                    prefixIcon: Icon(Icons.person),
+                    labelText: 'Upload File Here',
+                    prefixIcon: Icon(Icons.file_download),
                   ),
                 ),
               ),
-              //Contact Number
+              //Type of service
               Padding(
                 padding: const EdgeInsets.all(10),
                 child: TextField(
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
-                labelText: 'Customer Number',
-                prefixIcon: Icon(Icons.person),
+                labelText: 'Type of Service',
+                prefixIcon: Icon(Icons.design_services),
               ),
                 ),
               ),
-              //Label - Delivery Options
+              //Paper Size
               Padding(
                 //alignment: Alignment.center,
                 padding: const EdgeInsets.all(10),
-                child: Text(
-                'Delivery',
-                  style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
+                child: TextField(
+                decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Paper Size',
+                prefixIcon: Icon(Icons.pages),
                   ),
                 ),
               ),
@@ -66,9 +66,9 @@ class CustomerDetails extends StatefulWidget {
                 children: [
                 Expanded(
                   child: RadioListTile(
-                  value: 'delivery',
-                  title: Text('delivery'),
-                  groupValue: 'delivery',
+                  value: 'blackwhite',
+                  title: Text('Black & White'),
+                  groupValue: 'blackwhite',
                   onChanged: (value) {
                     setState(() {
                       });
@@ -77,9 +77,9 @@ class CustomerDetails extends StatefulWidget {
                 ),
                 Expanded(
                   child: RadioListTile(
-                    value: 'Self Collect',
-                    title: Text('self collect'),
-                    groupValue: 'self collect',
+                    value: 'colour',
+                    title: Text('Colour'),
+                    groupValue: 'colour',
                       onChanged: (value) {
                       setState(() {
                         });
@@ -88,64 +88,54 @@ class CustomerDetails extends StatefulWidget {
                 ),
                 ],
               ),
-              //Address Line 1          
+              //Price     
               Padding(
                 padding: const EdgeInsets.all(10),
                 child: TextField(
                   decoration: InputDecoration(
-                    labelText: 'Address Line 1',
-                    prefixIcon: Icon(Icons.person),
+                    labelText: 'Price',
+                    prefixIcon: Icon(Icons.money),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8)),
                   ),
                 ),
               ),    
-              //Address Line 2
+              //Number of Set
               Padding(
                 padding: const EdgeInsets.all(10),
                 child: TextField(
                     decoration: InputDecoration(
-                      labelText: 'Address Line 1',
-                      prefixIcon: Icon(Icons.person),
+                      labelText: 'Number of Set',
+                      prefixIcon: Icon(Icons.book),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8)),
                   ),
                 ),
               ),   
-              //Postcode
-              Row(
-                children: [
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: TextField(
+              //Collection Date
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: TextField(
                     decoration: InputDecoration(
-                      labelText: 'Postcode',
-                      prefixIcon: Icon(Icons.person),
+                      labelText: 'Collection Date',
+                      prefixIcon: Icon(Icons.date_range),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8)),
-                    ),
-                      ),
-                    ),
-                  ), 
-                    //State
-                  Expanded
-                  (
-                    child: Padding(
-                      //alignment: Alignment.center,
-                      padding: const EdgeInsets.all(10),
-                      child: TextField(
-                    decoration: InputDecoration(
-                      labelText: 'Address Line 1',
-                      prefixIcon: Icon(Icons.person),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8)),
-                    ),
-                      ),
-                    ),
                   ),
-                ],
-              ), 
+                ),
+              ),
+              //Notes
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: TextField(
+                    decoration: InputDecoration(
+                      labelText: 'Notes (optional)',
+                      prefixIcon: Icon(Icons.note),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8)),
+                  ),
+                ),
+              ),  
               ]
             ),
           ),
