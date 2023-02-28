@@ -87,7 +87,7 @@ class _LoginSignupState extends State<LoginSignup> {
   ?_scrollPosition / (screenSize.height * 0.40) : 1;
 
         return Scaffold(
-          extendBodyBehindAppBar: true,
+          extendBodyBehindAppBar: false,
               appBar: screenSize.width < 1000?AppBar( //Start here
       iconTheme: IconThemeData(color: Colors.blue),
       elevation: 0,
@@ -107,84 +107,95 @@ class _LoginSignupState extends State<LoginSignup> {
       preferredSize: Size(screenSize.width, 70),
       child: TopBarContents(_opacity),
     ),
-          body: Material(
-            child: Padding(
-            padding: const EdgeInsets.all(10),
-            child: ListView(
-              children: <Widget>[
-                // Container(
-                //     alignment: Alignment.center,
-                //     padding: const EdgeInsets.all(10),
-                //     child: const Text(
-                //       'TutorialKart',
-                //       style: TextStyle(
-                //           color: Colors.blue,
-                //           fontWeight: FontWeight.w500,
-                //           fontSize: 30),
-                //     )),
-                Container(
-                    alignment: Alignment.center,
-                    padding: const EdgeInsets.all(10),
-                    child: const Text(
-                      'Login',
-                      style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500,),
-                    )),
-                Container(
-                  padding: const EdgeInsets.all(10),
-                  child: TextField(
-                    controller: user,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'User Name',
-                    ),
-                  ),
-                ),
-                Container(
-                  padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-                  child: TextField(
-                    obscureText: true,
-                    controller: pass,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Password',
-                    ),
-                  ),
-                ),
-                TextButton(
-                  onPressed: () {
-                    //forgot password screen
-                  },
-                  child: const Text('Forgot Password',),
-                ),
-                Container(
-                    height: 50,
-                    padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                    child: ElevatedButton(
-                      child: const Text('Login'),
-                      onPressed: () {
-                        login();
-                      },
-                    )
-                ),
-                Row(
-                  children: <Widget>[
-                    const Text('Does not have account?'),
-                    TextButton(
+          body: Card(
+             color: Colors.white60,
+            child: Align(
+              alignment: Alignment.center,
+              child: Container(
+              width: 700,
+              child: Column(
+                children: <Widget>[
+                  // Container(
+                  //     alignment: Alignment.center,
+                  //     padding: const EdgeInsets.all(10),
+                  //     child: const Text(
+                  //       'TutorialKart',
+                  //       style: TextStyle(
+                  //           color: Colors.blue,
+                  //           fontWeight: FontWeight.w500,
+                  //           fontSize: 30),
+                  //     )),
+                  Container(
+                      alignment: Alignment.center,
+                      padding: const EdgeInsets.all(10),
                       child: const Text(
-                        'Sign Up',
-                        style: TextStyle(fontSize: 20),
+                        'Login',
+                        style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500,),
+                      )),
+                  //Username
+                  Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: TextField(
+                      controller: user,
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'User Name',
                       ),
-                      onPressed: () {                                    
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(builder: (context) =>SignUp()));
-                      },
-                    )
-                  ],
-                  mainAxisAlignment: MainAxisAlignment.center,
-                ),
-              ],
-            )),
+                    ),
+                  ),
+                  //password
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+                    child: TextField(
+                      obscureText: true,
+                      controller: pass,
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Password',
+                      ),
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      //forgot password screen
+                    },
+                    child: const Text('Forgot Password',),
+                  ),
+                  Container(
+                      padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                      child: ElevatedButton(
+                        child: const Text('Login'),
+                        style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.blueAccent,
+                        padding:
+                            const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                        textStyle:
+                            const TextStyle(fontSize: 18, fontWeight: FontWeight.normal)),
+                        onPressed: () {
+                          login();
+                        },
+                      )
+                  ),
+                  Row(
+                    children: <Widget>[
+                      const Text('Does not have account?'),
+                      TextButton(
+                        child: const Text(
+                          'Sign Up',
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        onPressed: () {                                    
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) =>SignUp()));
+                        },
+                      )
+                    ],
+                    mainAxisAlignment: MainAxisAlignment.center,
+                  ),
+                ],
+              )),
+            ),
           ),
         );
   }

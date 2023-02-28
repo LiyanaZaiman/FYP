@@ -74,6 +74,7 @@ class _OrderPageState extends State<OrderPage> {
         children: [
         OrderDetails(),
         CustomerDetails(),
+        //Order Button
         Padding(
         padding: const EdgeInsets.all(30),
           child: ElevatedButton(
