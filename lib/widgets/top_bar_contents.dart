@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:online_printing/screens/aboutUs.dart';
 import 'package:online_printing/screens/home_page.dart';
 import 'package:online_printing/screens/login_signup.dart';
+import 'package:online_printing/widgets/customer_details.dart';
 
 import '../screens/order_page.dart';
 
@@ -109,7 +110,7 @@ class TopBarContents extends StatefulWidget{
                   onTap: () {                                        
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(builder: (context) =>OrderPage()));
+                      MaterialPageRoute(builder: (context) => OrderPage()));
                       },
                   child: Column(
                     mainAxisSize: MainAxisSize.min,

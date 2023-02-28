@@ -1,3 +1,4 @@
+import 'package:online_printing/screens/order_page.dart';
 import 'package:online_printing/widgets/responsive.dart';
 import 'package:flutter/material.dart';
 
@@ -9,198 +10,164 @@ class CustomerDetails extends StatefulWidget {
   class _CustomerDetails extends State<CustomerDetails> {
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-          Container(
-          width: 1600,
-          height: 700,
-          color: Colors.white70,
-        ),
-        //Label - Customer information
-        Center(
-          child: Padding(
-            padding: EdgeInsets.only(
-              top: 70,
+    return  Card(
+        color: Colors.white70,
+        child: Align(
+          alignment: Alignment.topCenter,
+          child: Container(
+            width: 700,
+            child: Column(
+              children: <Widget>[
+                Padding(
+                padding: EdgeInsets.all(10.0),
+                  child: Text(
+                  'Customer Information',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              //Name
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: TextField(
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Enter Name',
+                    prefixIcon: Icon(Icons.person),
+                  ),
+                ),
               ),
-            child: Text(
-            'Customer Information',
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
+              //Contact Number
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: TextField(
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Customer Number',
+                prefixIcon: Icon(Icons.person),
               ),
-            ),
-          ),
-        ),
-        //Name
-        Padding(
-          padding: const EdgeInsets.only(
-            top: 100,
-            left: 200,
-          ),
-          child: SizedBox( // <-- SEE HERE
-            width: 200,
-            child: TextField(
-            decoration: InputDecoration(
-            hintText: 'Enter name',
-            labelText: 'Name',
-            border: OutlineInputBorder(),
-            ),
-          ),
-                    ),
-        ),
-        //Contact Number
-          Padding(
-          padding: const EdgeInsets.only(
-            top: 180,
-            left: 200,
-          ),
-          child: SizedBox(
-            width: 200,
-            child: TextField(
-            decoration: InputDecoration(
-            hintText: 'Enter contact number',
-            labelText: 'Contact Number',
-            border: OutlineInputBorder(),
-            ),
-            keyboardType: TextInputType.number,
-          ),
-                    ),
-        ),
-        //Label - Delivery Options
-        Padding(
-          padding: EdgeInsets.only(
-            top: 250,
-            left: 200,
-            ),
-          child: Text(
-          'Delivery',
-          style: TextStyle(
-            fontSize: 14,
-            fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(
-            top: 250,
-            left: 250,
-          ),
-          child: RadioListTile(
-          value: 'delivery',
-          title: Text('delivery'),
-          groupValue: 'delivery',
-          onChanged: (value) {
-            setState(() {
-              });
-            },
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(
-            top: 250,
-            left: 450,),
-          child: RadioListTile(
-          value: 'Self Collect',
-          title: Text('self collect'),
-          groupValue: 'self collect',
-          onChanged: (value) {
-            setState(() {
-              });
-            },
-          ),
-        ),
-        //Address Line 1
-          Padding(
-          padding: const EdgeInsets.only(
-            top: 300,
-            left: 200,
-          ),
-          child: SizedBox(
-            width: 200,
-            child: TextField(
-            decoration: InputDecoration(
-            hintText: 'Enter your adress',
-            labelText: 'Address Line',
-            border: OutlineInputBorder(),
-            ),
-            keyboardType: TextInputType.number,
-          ),
-                    ),
-        ),
-        //Address Line 2
-          Padding(
-          padding: const EdgeInsets.only(
-            top: 380,
-            left: 200,
-          ),
-          child: SizedBox(
-            width: 200,
-            child: TextField(
-            decoration: InputDecoration(
-            hintText: 'Enter your adress',
-            labelText: 'Address Line',
-            border: OutlineInputBorder(),
-            ),
-            keyboardType: TextInputType.number,
-          ),
-                    ),
-        ),
-        //Postcode
-          Padding(
-          padding: const EdgeInsets.only(
-            top: 460,
-            left: 200,
-          ),
-          child: SizedBox(
-            width: 200,
-            child: TextField(
-            decoration: InputDecoration(
-            hintText: 'Enter your postcode',
-            labelText: 'Postcode',
-            border: OutlineInputBorder(),
-            ),
-            keyboardType: TextInputType.number,
-          ),
-                    ),
-        ),
-          //State
-          Padding(
-          padding: const EdgeInsets.only(
-            top: 460,
-            left: 600,
-          ),
-          child: SizedBox(
-            width: 200,
-            child: TextField(
-            decoration: InputDecoration(
-            hintText: 'Enter your state',
-            labelText: 'State',
-            border: OutlineInputBorder(),
-            ),
-            keyboardType: TextInputType.number,
-          ),
-                    ),
-        ),
-        //Button
-        Center(
-          child: Padding(
-            padding: EdgeInsets.only(
-            top: 550,
-            ),
-            child: ElevatedButton(
-              child: Text('Order Now'),
-              onPressed: () {
-                }, 
-              style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.blueAccent,
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 30, vertical: 16),
-              textStyle:
-                  const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                ),
               ),
+              //Label - Delivery Options
+              Padding(
+                //alignment: Alignment.center,
+                padding: const EdgeInsets.all(10),
+                child: Text(
+                'Delivery',
+                  style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Row(
+                children: [
+                Expanded(
+                  child: RadioListTile(
+                  value: 'delivery',
+                  title: Text('delivery'),
+                  groupValue: 'delivery',
+                  onChanged: (value) {
+                    setState(() {
+                      });
+                    },
+                  ),
+                ),
+                Expanded(
+                  child: RadioListTile(
+                    value: 'Self Collect',
+                    title: Text('self collect'),
+                    groupValue: 'self collect',
+                      onChanged: (value) {
+                      setState(() {
+                        });
+                      },
+                    ),
+                ),
+                ],
+              ),
+              //Address Line 1          
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: TextField(
+                  decoration: InputDecoration(
+                    labelText: 'Address Line 1',
+                    prefixIcon: Icon(Icons.person),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8)),
+                  ),
+                ),
+              ),    
+              //Address Line 2
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: TextField(
+                    decoration: InputDecoration(
+                      labelText: 'Address Line 1',
+                      prefixIcon: Icon(Icons.person),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8)),
+                  ),
+                ),
+              ),   
+              //Postcode
+              Row(
+                children: [
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: TextField(
+                    decoration: InputDecoration(
+                      labelText: 'Postcode',
+                      prefixIcon: Icon(Icons.person),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8)),
+                    ),
+                      ),
+                    ),
+                  ), 
+                    //State
+                  Expanded
+                  (
+                    child: Padding(
+                      //alignment: Alignment.center,
+                      padding: const EdgeInsets.all(10),
+                      child: TextField(
+                    decoration: InputDecoration(
+                      labelText: 'Address Line 1',
+                      prefixIcon: Icon(Icons.person),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8)),
+                    ),
+                      ),
+                    ),
+                  ),
+                ],
+              ), 
+              //Button
+              Padding(
+              //alignment: Alignment.center,
+              padding: const EdgeInsets.all(10),
+                child: ElevatedButton(
+                  child: Text('Order Now'),
+                  onPressed: () {
+                    Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) => OrderPage()));
+                    }, 
+                  style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blueAccent,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 30, vertical: 16),
+                  textStyle:
+                      const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                  ),
+              ),
+              ]
+            ),
           ),
         ),
-      ],
-  );
+      ); 
   }
 }

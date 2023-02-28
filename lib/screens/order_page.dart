@@ -46,7 +46,7 @@ class _OrderPageState extends State<OrderPage> {
   ?_scrollPosition / (screenSize.height * 0.40) : 1;
 
   return Scaffold (
-    extendBodyBehindAppBar: true,
+    extendBodyBehindAppBar: false,
     appBar: screenSize.width < 1000?AppBar( //Start here
       iconTheme: IconThemeData(color: Colors.blue),
       elevation: 0,
@@ -68,21 +68,178 @@ class _OrderPageState extends State<OrderPage> {
     ),
     drawer: MenuDrawer(),
     body: SingleChildScrollView(
-      controller: _scrollController,
+      //controller: _scrollController,
       child: Column(
         children: [
-        Stack(
-          children: [ 
-        /*********************Other Widgets Starts Here************************/
-        Column(
-          children: [
-          CustomerDetails(),
-          BottomBar(),
-          ],
-        ),
-        ]
-        )
-      ],),
+        CustomerDetails(),
+        // Container(
+        // alignment: Alignment.center,
+        // child: Padding(
+        // padding: EdgeInsets.only(
+        //   top: 70,
+        //   ),
+        // child: Text(
+        // 'Customer Information',
+        // style: TextStyle(
+        //   fontSize: 20,
+        //   fontWeight: FontWeight.bold,
+        // ),
+        // ),
+        // ),
+       // ),
+    //       ListView(
+    //   children: <Widget>[
+    //           // Container(
+    //           //   alignment: Alignment.center,
+    //           //   padding: const EdgeInsets.all(10),
+    //           //   child: const Text(
+    //           //     'Login',
+    //           //     style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500,),
+    //           //   ),
+    //           // ),
+      
+    //         //Label - Customer information
+    //         Container(
+    //           alignment: Alignment.center,
+    //           child: Padding(
+    //           padding: EdgeInsets.only(
+    //             top: 70,
+    //             ),
+    //           child: Text(
+    //           'Customer Information',
+    //           style: TextStyle(
+    //             fontSize: 20,
+    //             fontWeight: FontWeight.bold,
+    //             ),
+    //           ),
+    //           ),
+    //         ),
+    //         //Name
+    //         Container(
+    //           padding: const EdgeInsets.all(10),
+    //           child: TextField(
+    // decoration: const InputDecoration(
+    //   border: OutlineInputBorder(),
+    //   labelText: 'Enter Name',
+    // ),
+    //           ),
+    //         ),
+    //         //Contact Number
+    //         Container(
+    //           padding: const EdgeInsets.all(10),
+    //           child: TextField(
+    // decoration: const InputDecoration(
+    //   border: OutlineInputBorder(),
+    //   labelText: 'Customer Number',
+    // ),
+    //           ),
+    //         ),
+    //         //Label - Delivery Options
+    //         Container(
+    //           alignment: Alignment.center,
+    //           padding: const EdgeInsets.all(10),
+    //           child: Text(
+    //           'Delivery',
+    //           style: TextStyle(
+    // fontSize: 14,
+    // fontWeight: FontWeight.bold,
+    // ),
+    //           ),
+    //         ),
+    //         Row(
+    //           children: [
+    // RadioListTile(
+    // value: 'delivery',
+    // title: Text('delivery'),
+    // groupValue: 'delivery',
+    // onChanged: (value) {
+    //   setState(() {
+    //     });
+    //   },
+    // ),
+    //           RadioListTile(
+    //           value: 'Self Collect',
+    //           title: Text('self collect'),
+    //           groupValue: 'self collect',
+    //           onChanged: (value) {
+    // setState(() {
+    //   });
+    //           },
+    //           ),
+    //           ],
+    //           mainAxisAlignment: MainAxisAlignment.start,
+    //         ),
+    //         //Address Line 1          
+    //         Container(
+    //           alignment: Alignment.center,
+    //           padding: const EdgeInsets.all(10),
+    //           child: Text(
+    //           'Address Line',
+    //           style: TextStyle(
+    // fontSize: 14,
+    // fontWeight: FontWeight.bold,
+    // ),
+    //           ),
+    //         ),    
+    //         //Address Line 2
+    //         Container(
+    //           alignment: Alignment.center,
+    //           padding: const EdgeInsets.all(10),
+    //           child: Text(
+    //           'Address Line',
+    //           style: TextStyle(
+    // fontSize: 14,
+    // fontWeight: FontWeight.bold,
+    // ),
+    //           ),
+    //         ),   
+    //         //Postcode
+    //         Container(
+    //           alignment: Alignment.center,
+    //           padding: const EdgeInsets.all(10),
+    //           child: Text(
+    //           'PostCode',
+    //           style: TextStyle(
+    // fontSize: 14,
+    // fontWeight: FontWeight.bold,
+    // ),
+    //           ),
+    //         ), 
+    //           //State
+    //         Container(
+    //           alignment: Alignment.center,
+    //           padding: const EdgeInsets.all(10),
+    //           child: Text(
+    //           'State',
+    //           style: TextStyle(
+    // fontSize: 14,
+    // fontWeight: FontWeight.bold,
+    // ),
+    //           ),
+    //         ), 
+    //         //Button
+    //         Container(
+    //         alignment: Alignment.center,
+    //         padding: const EdgeInsets.all(10),
+    //           child: ElevatedButton(
+    //             child: Text('Order Now'),
+    //             onPressed: () {
+    //       Navigator.pushReplacement(context,
+    //       MaterialPageRoute(builder: (context) => OrderPage()));
+    //               }, 
+    //             style: ElevatedButton.styleFrom(
+    //             backgroundColor: Colors.blueAccent,
+    //             padding:
+    //                 const EdgeInsets.symmetric(horizontal: 30, vertical: 16),
+    //             textStyle:
+    //                 const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+    //             ),
+    //         ),
+    //       ],
+    //     ),
+        BottomBar(),
+        ],
+      ),
     )
   );
 }

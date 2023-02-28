@@ -19,13 +19,27 @@ class  AboutUs extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
 	return Scaffold(
-    body: Center(
+    body: 
+    Column(
+    children: [Container(
+    alignment: Alignment.center,
+    padding: const EdgeInsets.all(10),
+    child: const Text(
+      ' Choongs Printing Shop is a family-owned business which provides printing and photocopy services for neighbouring communities. Following the development of technology, it is believed that by making the printing services available online, consumers may feel comfortable in this area as well. The Online Printing Service System is developed primarily to make it easier for the owner to manage and monitor their operations and helps customers to send their item for printing simpler and faster. It is an integrated system which enables customers to remotely send documents they want to print online by accessing the system’s link or scanning unique QR code. The system is accessible to both the owner and the client through a variety of devices, including PCs and mobile phones.',
+      style: TextStyle(
+          color: Colors.blue,
+          fontWeight: FontWeight.w200,
+          fontSize: 30),
+    )),
+      Center(
       child: ElevatedButton(
-        child: Text('Go Back'),
+        child: const Text('Go Back'),
         onPressed: (){
         Navigator.pushReplacement(context,
                       MaterialPageRoute(builder: (context) => HomePage()));},
          ),
+    )
+    ]
     ),
 	); 
 }

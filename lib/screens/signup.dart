@@ -74,80 +74,179 @@ class _SignUpState extends State<SignUp> {
         },
     )
       ),
-      body: Container(
-        height: 300,
+      body: 
+      SingleChildScrollView(
         child: Card(
           color: Colors.white70,
-          child: Column(
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  'Register',
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextField(
-                  controller: user,
-                  decoration: InputDecoration(
-                    labelText: 'Username',
-                    prefixIcon: Icon(Icons.person),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8)),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextField(
-                  controller: pass,
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    labelText: 'Password',
-                    prefixIcon: Icon(Icons.lock),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8)),
-                  ),
-                ),
-              ),
-              Row(
+          child: Align(
+            alignment: Alignment.topCenter,
+            child: Container(
+              //height: 300,
+              width:700,
+              child: Column(
                 children: <Widget>[
-                  Expanded(
-                    child: MaterialButton(
-                      color: Colors.blueGrey,
-                      child: Text('Register',
-                          style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white)),
-                      onPressed: () {
-                        register();
-                      },
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Text(
+                      'Register',
+                      style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                     ),
                   ),
-                  Expanded(
-                    child: MaterialButton(
-                      color: Colors.amber[100],
-                      child: Text('Login',
-                          style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black)),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => LoginSignup(),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0,),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        labelText: 'Customer Name',
+                        prefixIcon: Icon(Icons.person),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8)),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0,),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        labelText: 'PhoneNumber',
+                        prefixIcon: Icon(Icons.phone_android_rounded),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8)),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0,),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        labelText: 'Email',
+                        prefixIcon: Icon(Icons.email),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8)),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0,),
+                    child: TextField(
+                      controller: user,
+                      decoration: InputDecoration(
+                        labelText: 'Address Line 1',
+                        prefixIcon: Icon(Icons.house),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8)),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0,),
+                    child: TextField(
+                      controller: user,
+                      decoration: InputDecoration(
+                        labelText: 'Address Line 2',
+                        prefixIcon: Icon(Icons.house),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8)),
+                      ),
+                    ),
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.all(10.0,),
+                          child: TextField(
+                            controller: user,
+                            decoration: InputDecoration(
+                              labelText: 'Postcode',
+                              prefixIcon: Icon(Icons.location_city),
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8)),
+                            ),
                           ),
-                        );
-                      },
+                        ),
+                      ),
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.all(10.0,),
+                          child: TextField(
+                            controller: user,
+                            decoration: InputDecoration(
+                              labelText: 'State',
+                              prefixIcon: Icon(Icons.location_city_outlined),
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8)),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: TextField(
+                      controller: pass,
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        labelText: 'Username',
+                        prefixIcon: Icon(Icons.person_2),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8)),
+                      ),
                     ),
                   ),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: TextField(
+                      controller: pass,
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        labelText: 'Password',
+                        prefixIcon: Icon(Icons.lock),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8)),
+                      ),
+                    ),
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Expanded(
+                        child: MaterialButton(
+                          height: 60,
+                          color: Colors.blueGrey,
+                          child: Text('Register',
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white)),
+                          onPressed: () {
+                            register();
+                          },
+                        ),
+                      ),
+                      Expanded(
+                        child: MaterialButton(
+                          height: 60,
+                          color: Colors.amber[100],
+                          child: Text('Login',
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black)),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => LoginSignup(),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                    ],
+                  )
                 ],
-              )
-            ],
+              ),
+            ),
           ),
         ),
       ),

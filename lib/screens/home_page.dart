@@ -251,7 +251,7 @@ Widget build(BuildContext context) {
             height: screenSize.height * 0.80,
             width: screenSize.width,
             child: Image.asset(
-              'assets/images/printing_images.png',
+              'assets/images/image01.jpg',
               fit: BoxFit.cover,
               )
           ),
@@ -260,6 +260,11 @@ Widget build(BuildContext context) {
         Column(
           children: [
           //CustomerDetails(),
+          Container(
+          width: 1600,
+          height: 700,
+          color: Colors.white70,
+        ),
           FeaturedTiles(screenSize: screenSize),
           FeaturedHeading(screenSize: screenSize),
           MainHeading(screenSize: screenSize),
