@@ -44,7 +44,7 @@ class TopBarContents extends StatefulWidget{
                   children: [
                     SizedBox(width: screenSize.width/8,),
                     Text(
-                      'Online Printing Service',
+                      'Choong\'s Printing Service',
                       style: TextStyle(
                         color: Color(0xFF077bd7),
                         fontSize: 23.5,
@@ -219,7 +219,56 @@ class TopBarContents extends StatefulWidget{
                         ),
                       )
                     ],
-                  ),)
+                  ),
+                  ),
+                    SizedBox(width: screenSize.width  / 15),
+                      InkWell (
+                      onHover: (value) {
+                    setState(() {
+                      value
+                      ? _isHovering[4] = true
+                      : _isHovering[4] = false;
+                    });
+                  },
+                  onTap: () {
+                      Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) =>LoginSignup()));
+                  },
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      CircleAvatar(
+                      radius: 15,
+                      backgroundImage: NetworkImage(
+                        'assets/images/profileIcon.png',
+                      ),
+                    ),
+                      // Text(
+                      //   'User Profile',
+                      //   style: TextStyle(
+                      //     color: _isHovering[3]
+                      //     ? Color(0xFF077bd7)
+                      //     : Color(0xFF077bd7),
+                      //     fontWeight: FontWeight.bold,
+                      //     fontSize: 11
+                      //   ),
+                      // ),
+                      SizedBox(height: 5),
+                      Visibility(
+                        maintainAnimation: true,
+                        maintainState: true,
+                        maintainSize: true,
+                        visible: _isHovering[4],
+                        child: Container(
+                          height: 2,
+                          width: 20,
+                          color: Color(0xFF051441),
+                        ),
+                      )
+                    ],
+                  ),
+                  ),
                   ],
                 )
               )

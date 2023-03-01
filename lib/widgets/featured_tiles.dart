@@ -91,7 +91,7 @@ class FeaturedTiles extends StatelessWidget {
                               borderRadius: BorderRadius.circular(5.0),
                               child: Image.asset(
                                 assets[pageIndex],
-                                fit:BoxFit.cover,)
+                                fit:BoxFit.contain,)
                               ),
                           ),
                           Padding(padding: EdgeInsets.only(
@@ -118,7 +118,7 @@ class FeaturedTiles extends StatelessWidget {
         ):
         Padding(
             padding: EdgeInsets.only(
-              top: screenSize.height * 0.2,
+              top: screenSize.height * 0.08,
               left: screenSize.width / 15,
               right: screenSize.width / 15,
             ),
@@ -135,7 +135,7 @@ class FeaturedTiles extends StatelessWidget {
                           decoration: BoxDecoration(
                            borderRadius: BorderRadius.circular(20.0),
                             image: DecorationImage(
-                            fit: BoxFit.cover,
+                            fit: BoxFit.contain,
                             image: AssetImage(
                               assets[pageIndex],
                              //fit: BoxFit.cover,

@@ -220,7 +220,7 @@ Widget build(BuildContext context) {
   ?_scrollPosition / (screenSize.height * 0.40) : 1;
 
   return Scaffold (
-    extendBodyBehindAppBar: true,
+    extendBodyBehindAppBar: false,
     appBar: screenSize.width < 1000?AppBar( //Start here
       iconTheme: IconThemeData(color: Colors.blue),
       elevation: 0,
@@ -264,6 +264,18 @@ Widget build(BuildContext context) {
           width: 1600,
           height: 700,
           color: Colors.white70,
+          child: Align(
+          alignment: Alignment.center,
+          child: Text(
+            'Online Printing Service System',
+            //textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 60,
+              fontWeight: FontWeight.bold,
+              color:Color.fromARGB(255, 8, 66, 114) , 
+            ),
+          ),
+          ),
         ),
           FeaturedTiles(screenSize: screenSize),
           FeaturedHeading(screenSize: screenSize),
