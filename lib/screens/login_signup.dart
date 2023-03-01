@@ -50,7 +50,7 @@ class _LoginSignupState extends State<LoginSignup> {
   }
 
      Future login() async {
-    var url = Uri.http("http://172.18.82.141/flutter_api/login.php");
+    var url = Uri.http("http:///localhost/login.php");
     var response = await http.post(url, body: {
       "username": user.text,
       "password": pass.text,

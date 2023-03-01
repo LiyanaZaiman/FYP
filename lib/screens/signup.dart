@@ -19,7 +19,7 @@ class _SignUpState extends State<SignUp> {
 
   Future<void> register() async {
     //ipaddress: 172.18.82.141
-    var url = Uri.http('https://localhost/register.php');
+    var url = Uri.http('https://127.0.0.1/register.php');
     var response = await http.post(url, body: {
       "username": user.text,
       "password": pass.text,
@@ -128,7 +128,6 @@ class _SignUpState extends State<SignUp> {
                   Padding(
                     padding: const EdgeInsets.all(10.0,),
                     child: TextField(
-                      controller: user,
                       decoration: InputDecoration(
                         labelText: 'Address Line 1',
                         prefixIcon: Icon(Icons.house),
@@ -140,7 +139,6 @@ class _SignUpState extends State<SignUp> {
                   Padding(
                     padding: const EdgeInsets.all(10.0,),
                     child: TextField(
-                      controller: user,
                       decoration: InputDecoration(
                         labelText: 'Address Line 2',
                         prefixIcon: Icon(Icons.house),
@@ -155,7 +153,6 @@ class _SignUpState extends State<SignUp> {
                         child: Padding(
                           padding: const EdgeInsets.all(10.0,),
                           child: TextField(
-                            controller: user,
                             decoration: InputDecoration(
                               labelText: 'Postcode',
                               prefixIcon: Icon(Icons.location_city),
@@ -169,7 +166,6 @@ class _SignUpState extends State<SignUp> {
                         child: Padding(
                           padding: const EdgeInsets.all(10.0,),
                           child: TextField(
-                            controller: user,
                             decoration: InputDecoration(
                               labelText: 'State',
                               prefixIcon: Icon(Icons.location_city_outlined),
@@ -184,7 +180,7 @@ class _SignUpState extends State<SignUp> {
                   Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: TextField(
-                      controller: pass,
+                      controller: user,
                       obscureText: true,
                       decoration: InputDecoration(
                         labelText: 'Username',
