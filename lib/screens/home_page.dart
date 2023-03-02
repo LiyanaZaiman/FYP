@@ -218,6 +218,8 @@ Widget build(BuildContext context) {
   var screenSize = MediaQuery.of(context).size;
   _opacity = _scrollPosition < screenSize.height * 0.40
   ?_scrollPosition / (screenSize.height * 0.40) : 1;
+  //Future.delayed(Duration.zero, () => showAlert(context));
+  showAlert(context);
 
   return Scaffold (
     extendBodyBehindAppBar: false,
@@ -291,4 +293,24 @@ Widget build(BuildContext context) {
     )
   );
 }
+void showAlert(BuildContext context) {
+  showDialog(
+    context: context,
+    builder: (context) => AlertDialog(
+      content: ElevatedButton(
+        child: Text('Click Here to Order Now'),
+        onPressed: () {
+          Navigator.pushReplacement(context,
+          MaterialPageRoute(builder: (context) => OrderPage()));
+          }, 
+        style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.blueAccent,
+        padding:
+            const EdgeInsets.symmetric(horizontal: 35, vertical: 28),
+        textStyle:
+            const TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+        ),
+      )
+    );
+  }
 }
