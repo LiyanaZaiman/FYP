@@ -219,7 +219,7 @@ Widget build(BuildContext context) {
   _opacity = _scrollPosition < screenSize.height * 0.40
   ?_scrollPosition / (screenSize.height * 0.40) : 1;
   //Future.delayed(Duration.zero, () => showAlert(context));
-  showAlert(context);
+  //showAlert(context);
 
   return Scaffold (
     extendBodyBehindAppBar: false,
@@ -248,7 +248,8 @@ Widget build(BuildContext context) {
       child: Column(
         children: [
         Stack(
-          children: [ Container(
+          children: [ 
+          Container(
           child: SizedBox(
             height: screenSize.height * 0.80,
             width: screenSize.width,
@@ -264,7 +265,7 @@ Widget build(BuildContext context) {
           //CustomerDetails(),
           Container(
           width: 1600,
-          height: 700,
+          height: 650,
           color: Colors.white70,
           child: Align(
           alignment: Alignment.center,

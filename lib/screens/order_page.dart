@@ -74,22 +74,37 @@ class _OrderPageState extends State<OrderPage> {
         children: [
         OrderDetails(),
         CustomerDetails(),
-        //Order Button
-        Padding(
-        padding: const EdgeInsets.all(30),
-          child: ElevatedButton(
-            child: Text('Order Now'),
-            onPressed: () {
-              Navigator.pushReplacement(context,
-              MaterialPageRoute(builder: (context) => OrderPage()));
-              }, 
-            style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.blueAccent,
-            padding:
-                const EdgeInsets.symmetric(horizontal: 35, vertical: 30),
-            textStyle:
-                const TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Padding(
+            padding: EdgeInsets.all(10.0),
+              child: Text(
+              'Total Amount: RM0.00',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ),
+            //Order Button
+            Padding(
+            padding: const EdgeInsets.all(30),
+              child: ElevatedButton(
+                child: Text('Order Now'),
+                onPressed: () {
+                  Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => OrderPage()));
+                  }, 
+                style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blueAccent,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 35, vertical: 30),
+                textStyle:
+                    const TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+                ),
+            ),
+          ],
         ),
         BottomBar(),
         ],
