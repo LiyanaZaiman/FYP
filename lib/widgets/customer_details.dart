@@ -1,3 +1,4 @@
+import 'package:online_printing/screens/login_signup.dart';
 import 'package:online_printing/screens/order_page.dart';
 import 'package:online_printing/widgets/responsive.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +19,7 @@ class CustomerDetails extends StatefulWidget {
             width: 700,
             child: Column(
               children: <Widget>[
+                //Customer Information
                 Padding(
                 padding: EdgeInsets.all(10.0),
                   child: Text(
@@ -25,6 +27,23 @@ class CustomerDetails extends StatefulWidget {
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Padding(
+                padding: EdgeInsets.all(10.0),
+                  child: InkWell(
+                    onTap: () {                      
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) =>LoginSignup()));
+                      },
+                    child: Text(
+                    'A regular customer? Login your account here',
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.normal,
+                      ),
                     ),
                   ),
                 ),

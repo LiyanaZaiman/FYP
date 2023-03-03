@@ -5,6 +5,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 import 'package:online_printing/screens/home_page.dart';
 import 'package:online_printing/screens/login_signup.dart';
+import 'package:online_printing/screens/order_page.dart';
 // import 'DashBoard.dart';
 // import 'main.dart';
 
@@ -19,33 +20,80 @@ class _SignUpState extends State<SignUp> {
 
   Future<void> register() async {
     //ipaddress: 172.18.82.141
-    var url = Uri.http('https://127.0.0.1/register.php');
-    var response = await http.post(url, body: {
-      "username": user.text,
-      "password": pass.text,
-    });
-    var data = json.decode(response.body);
-    if (data == "Error") {
-      Fluttertoast.showToast(
-        msg:
-        'User allready exit!',
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.CENTER,
-        timeInSecForIosWeb: 1,
-        backgroundColor: Colors.red,
-        fontSize: 25,
-      );
-    } else {
-      Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginSignup(),),);
-      Fluttertoast.showToast(
-          msg:'Registration Successful',
-          toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.CENTER,
-        timeInSecForIosWeb: 1,
-          fontSize: 25, 
-          backgroundColor: Colors.green);
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginSignup(),),);
-    }
+    //var url = Uri.http('https://172.18.82.141/register.php');
+    var url = Uri.http('172.18.82.141', '/register.php');
+    var response = await http.post(url, body: { "username": user.text, "password": pass.text });
+    // var response = await http.post(url, body: {
+    //   "username": user.text,
+    //   "password": pass.text,
+    // });
+
+    if (response.statusCode == 200) {
+      var data = json.decode(response.body);
+       Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage(),),);
+       Fluttertoast.showToast(
+           msg:'Registration Successful',
+           toastLength: Toast.LENGTH_SHORT,
+         gravity: ToastGravity.CENTER,
+         timeInSecForIosWeb: 1,
+           fontSize: 25, 
+           backgroundColor: Colors.green);
+               Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage(),),);
+  if (data == "Registration failed") {
+    // Handle failure
+        Fluttertoast.showToast(
+         msg:
+         'User allready exit!',
+         toastLength: Toast.LENGTH_SHORT,
+         gravity: ToastGravity.CENTER,
+         timeInSecForIosWeb: 1,
+         backgroundColor: Colors.red,
+         fontSize: 25,
+       );
+  } else {
+    // Handle success
+    Text(
+        'Total Amount: RM0.00',
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        );
+     Navigator.push(context, MaterialPageRoute(builder: (context)=>OrderPage(),),);
+  }
+} else {
+  // Handle error
+      Text(
+        'Total Amount: RM0.00',
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+  );
+}
+
+    //   var data = json.decode(response.body);
+    //  if (data == "Registration failed") {
+    //    Fluttertoast.showToast(
+    //      msg:
+    //      'User allready exit!',
+    //      toastLength: Toast.LENGTH_SHORT,
+    //      gravity: ToastGravity.CENTER,
+    //      timeInSecForIosWeb: 1,
+    //      backgroundColor: Colors.red,
+    //      fontSize: 25,
+    //    );
+    //  } else {
+    //    Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginSignup(),),);
+    //    Fluttertoast.showToast(
+    //        msg:'Registration Successful',
+    //        toastLength: Toast.LENGTH_SHORT,
+    //      gravity: ToastGravity.CENTER,
+    //      timeInSecForIosWeb: 1,
+    //        fontSize: 25, 
+    //        backgroundColor: Colors.green);
+    //            Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginSignup(),),);
+    //  }
     //Example from Pub Dev
     // Fluttertoast.showToast(
     //     msg: "This is Center Short Toast",
