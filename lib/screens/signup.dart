@@ -15,96 +15,8 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-  final user = TextEditingController();
-  final pass = TextEditingController();
-
-  Future<void> register() async {
-    //ipaddress: 172.18.82.141
-    //var url = Uri.http('https://172.18.82.141/register.php');
-    var url = Uri.http('172.18.82.141', '/register.php');
-    var response = await http.post(url, body: { "username": user.text, "password": pass.text });
-    // var response = await http.post(url, body: {
-    //   "username": user.text,
-    //   "password": pass.text,
-    // });
-
-    if (response.statusCode == 200) {
-      var data = json.decode(response.body);
-       Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage(),),);
-       Fluttertoast.showToast(
-           msg:'Registration Successful',
-           toastLength: Toast.LENGTH_SHORT,
-         gravity: ToastGravity.CENTER,
-         timeInSecForIosWeb: 1,
-           fontSize: 25, 
-           backgroundColor: Colors.green);
-               Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage(),),);
-  if (data == "Registration failed") {
-    // Handle failure
-        Fluttertoast.showToast(
-         msg:
-         'User allready exit!',
-         toastLength: Toast.LENGTH_SHORT,
-         gravity: ToastGravity.CENTER,
-         timeInSecForIosWeb: 1,
-         backgroundColor: Colors.red,
-         fontSize: 25,
-       );
-  } else {
-    // Handle success
-    Text(
-        'Total Amount: RM0.00',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
-        );
-     Navigator.push(context, MaterialPageRoute(builder: (context)=>OrderPage(),),);
-  }
-} else {
-  // Handle error
-      Text(
-        'Total Amount: RM0.00',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
-  );
-}
-
-    //   var data = json.decode(response.body);
-    //  if (data == "Registration failed") {
-    //    Fluttertoast.showToast(
-    //      msg:
-    //      'User allready exit!',
-    //      toastLength: Toast.LENGTH_SHORT,
-    //      gravity: ToastGravity.CENTER,
-    //      timeInSecForIosWeb: 1,
-    //      backgroundColor: Colors.red,
-    //      fontSize: 25,
-    //    );
-    //  } else {
-    //    Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginSignup(),),);
-    //    Fluttertoast.showToast(
-    //        msg:'Registration Successful',
-    //        toastLength: Toast.LENGTH_SHORT,
-    //      gravity: ToastGravity.CENTER,
-    //      timeInSecForIosWeb: 1,
-    //        fontSize: 25, 
-    //        backgroundColor: Colors.green);
-    //            Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginSignup(),),);
-    //  }
-    //Example from Pub Dev
-    // Fluttertoast.showToast(
-    //     msg: "This is Center Short Toast",
-    //     toastLength: Toast.LENGTH_SHORT,
-    //     gravity: ToastGravity.CENTER,
-    //     timeInSecForIosWeb: 1,
-    //     backgroundColor: Colors.red,
-    //     textColor: Colors.white,
-    //     fontSize: 16.0
-    // );
-  }
+  TextEditingController user = TextEditingController();
+  TextEditingController pass = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -263,7 +175,9 @@ class _SignUpState extends State<SignUp> {
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white)),
                           onPressed: () {
+                            _showDialog();
                             register();
+                            //Navigator.push(context, MaterialPageRoute(builder: (context)=>OrderPage(),),);
                           },
                         ),
                       ),
@@ -296,4 +210,116 @@ class _SignUpState extends State<SignUp> {
       ),
     );
   }
+
+  //Registration 
+   void register() {
+    //ipaddress: 172.18.82.141
+    //var url = Uri.http('https://172.18.82.141/register.php');
+    //http://localhost/flutter_api/register.php
+    var url = Uri.http('http://localhost/flutter_api/register.php');
+    var response = http.post(url, body: { "username": user.text, "password": pass.text });
+    // var response = await http.post(url, body: {
+    //   "username": user.text,
+    //   "password": pass.text,
+    // });
+    Navigator.push(context, MaterialPageRoute(builder: (context)=>OrderPage(),),);
+
+//     if (response.statusCode == 200) {
+//       var data = json.decode(response.body);
+//        Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage(),),);
+//        Fluttertoast.showToast(
+//            msg:'Registration Successful',
+//            toastLength: Toast.LENGTH_SHORT,
+//          gravity: ToastGravity.CENTER,
+//          timeInSecForIosWeb: 1,
+//            fontSize: 25, 
+//            backgroundColor: Colors.green);
+//                Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage(),),);
+//   if (data == "Registration failed") {
+//     // Handle failure
+//         Fluttertoast.showToast(
+//          msg:
+//          'User allready exit!',
+//          toastLength: Toast.LENGTH_SHORT,
+//          gravity: ToastGravity.CENTER,
+//          timeInSecForIosWeb: 1,
+//          backgroundColor: Colors.red,
+//          fontSize: 25,
+//        );
+//   } else {
+//     // Handle success
+//     Text(
+//         'Total Amount: RM0.00',
+//           style: TextStyle(
+//             fontSize: 20,
+//             fontWeight: FontWeight.bold,
+//           ),
+//         );
+//      Navigator.push(context, MaterialPageRoute(builder: (context)=>OrderPage(),),);
+//   }
+// } else {
+//   // Handle error
+//       Text(
+//         'Total Amount: RM0.00',
+//           style: TextStyle(
+//             fontSize: 20,
+//             fontWeight: FontWeight.bold,
+//           ),
+//   );
+// }
+
+    //   var data = json.decode(response.body);
+    //  if (data == "Registration failed") {
+    //    Fluttertoast.showToast(
+    //      msg:
+    //      'User allready exit!',
+    //      toastLength: Toast.LENGTH_SHORT,
+    //      gravity: ToastGravity.CENTER,
+    //      timeInSecForIosWeb: 1,
+    //      backgroundColor: Colors.red,
+    //      fontSize: 25,
+    //    );
+    //  } else {
+    //    Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginSignup(),),);
+    //    Fluttertoast.showToast(
+    //        msg:'Registration Successful',
+    //        toastLength: Toast.LENGTH_SHORT,
+    //      gravity: ToastGravity.CENTER,
+    //      timeInSecForIosWeb: 1,
+    //        fontSize: 25, 
+    //        backgroundColor: Colors.green);
+    //            Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginSignup(),),);
+    //  }
+    //Example from Pub Dev
+    // Fluttertoast.showToast(
+    //     msg: "This is Center Short Toast",
+    //     toastLength: Toast.LENGTH_SHORT,
+    //     gravity: ToastGravity.CENTER,
+    //     timeInSecForIosWeb: 1,
+    //     backgroundColor: Colors.red,
+    //     textColor: Colors.white,
+    //     fontSize: 16.0
+    // );
+  }
+
+  // Define a function to show the pop-up dialog
+void _showDialog() {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: Text('Your registration is successful!'),
+        content: Text('Thank you'),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: Text('Close'),
+          ),
+        ],
+      );
+    },
+  );
+}
 }

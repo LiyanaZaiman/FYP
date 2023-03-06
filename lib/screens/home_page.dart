@@ -315,4 +315,28 @@ void showAlert(BuildContext context) {
       )
     );
   }
+
+
+  // Future openDialog() => showDialog(
+  //   context: context,
+  //   builder: ((context) => AlertDialog(
+  //     title: Text('Click here to order'),
+  //     content: 
+  //     TextField(
+  //       decoration: InputDecoration(hintText: 'Yes no'),
+  //     ),
+  //     actions: [
+  //       TextButton(
+  //         child:Text('Yes'),
+  //         onpressed: submit,
+  //       ),
+  //     ]
+  //   )
+  //   ),
+  // );
+
+  // void submit(){
+  //   Navigator.of(context).pop();
+  // }
+
 }

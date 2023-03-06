@@ -54,26 +54,27 @@ class _LoginSignupState extends State<LoginSignup> {
       "username": user.text,
       "password": pass.text,
     });
-    var data = json.decode(response.body);
-    if (data == "Success") {
-      Fluttertoast.showToast(
-        msg:
-        'Login Successful',
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.CENTER,
-        timeInSecForIosWeb: 1,
-        fontSize: 25, 
-        backgroundColor: Colors.green);
-      Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage(),),);
-    } else {
-      Fluttertoast.showToast(
-        msg:'Username and password invalid',
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.CENTER,
-        timeInSecForIosWeb: 1,
-        fontSize: 25, 
-        backgroundColor: Colors.red);
-    }
+    
+    // var data = json.decode(response.body);
+    // if (data == "Success") {
+    //   Fluttertoast.showToast(
+    //     msg:
+    //     'Login Successful',
+    //     toastLength: Toast.LENGTH_SHORT,
+    //     gravity: ToastGravity.CENTER,
+    //     timeInSecForIosWeb: 1,
+    //     fontSize: 25, 
+    //     backgroundColor: Colors.green);
+    //   Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage(),),);
+    // } else {
+    //   Fluttertoast.showToast(
+    //     msg:'Username and password invalid',
+    //     toastLength: Toast.LENGTH_SHORT,
+    //     gravity: ToastGravity.CENTER,
+    //     timeInSecForIosWeb: 1,
+    //     fontSize: 25, 
+    //     backgroundColor: Colors.red);
+    // }
   }
 
   
