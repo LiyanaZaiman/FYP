@@ -1,6 +1,7 @@
-import 'package:online_printing/screens/login_signup.dart';
+import 'package:online_printing/screens/login_page.dart';
 import 'package:online_printing/screens/order_page.dart';
 import 'package:online_printing/widgets/responsive.dart';
+import 'package:online_printing/screens/login_signup.dart';
 import 'package:flutter/material.dart';
 
 class CustomerDetails extends StatefulWidget {
