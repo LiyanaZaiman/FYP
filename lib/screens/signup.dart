@@ -176,7 +176,7 @@ class _SignUpState extends State<SignUp> {
                                   color: Colors.white)),
                           onPressed: () {
                             _showDialog();
-                            register();
+                            register(user.text, pass.text);
                             //Navigator.push(context, MaterialPageRoute(builder: (context)=>OrderPage(),),);
                           },
                         ),
@@ -212,12 +212,12 @@ class _SignUpState extends State<SignUp> {
   }
 
   //Registration 
-   void register() async {
+   void register(String user, String pass) async {
     //ipaddress: 172.18.82.141
     //var url = Uri.http('https://172.18.82.141/register.php');
     //http://localhost/flutter_api/register.php
     var url = Uri.http('localhost', '/flutter_api/register.php');
-    var response = await http.post(url, body: { "username": user.text, "password": pass.text });
+    var response = await http.post(url, body: { "username": user, "password": pass });
     // var response = await http.post(url, body: {
     //   "username": user.text,
     //   "password": pass.text,
@@ -234,7 +234,31 @@ class _SignUpState extends State<SignUp> {
     // Log the response body for debugging purposes
     print(response.body);
   }
+  }
 
+  // Define a function to show the pop-up dialog
+void _showDialog() {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: Text('Your registration is successful!'),
+        content: Text('Thank you'),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: Text('Close'),
+          ),
+        ],
+      );
+    },
+  );
+}
+}
+
+//CODES FOR INTEGRATING WITH THE DATABASE
 //     if (response.statusCode == 200) {
 //       var data = json.decode(response.body);
 //        Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage(),),);
@@ -311,26 +335,3 @@ class _SignUpState extends State<SignUp> {
     //     textColor: Colors.white,
     //     fontSize: 16.0
     // );
-  }
-
-  // Define a function to show the pop-up dialog
-void _showDialog() {
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return AlertDialog(
-        title: Text('Your registration is successful!'),
-        content: Text('Thank you'),
-        actions: [
-          TextButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            child: Text('Close'),
-          ),
-        ],
-      );
-    },
-  );
-}
-}
