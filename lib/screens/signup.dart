@@ -212,17 +212,28 @@ class _SignUpState extends State<SignUp> {
   }
 
   //Registration 
-   void register() {
+   void register() async {
     //ipaddress: 172.18.82.141
     //var url = Uri.http('https://172.18.82.141/register.php');
     //http://localhost/flutter_api/register.php
-    var url = Uri.http('http://localhost/flutter_api/register.php');
-    var response = http.post(url, body: { "username": user.text, "password": pass.text });
+    var url = Uri.http('localhost', '/flutter_api/register.php');
+    var response = await http.post(url, body: { "username": user.text, "password": pass.text });
     // var response = await http.post(url, body: {
     //   "username": user.text,
     //   "password": pass.text,
     // });
-    Navigator.push(context, MaterialPageRoute(builder: (context)=>OrderPage(),),);
+    if (response.statusCode == 200) {
+    Fluttertoast.showToast(msg: 'Registration successful');
+    // Navigate to the home page
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => HomePage()),
+    );
+  } else {
+    Fluttertoast.showToast(msg: 'Registration failed: ${response.statusCode}');
+    // Log the response body for debugging purposes
+    print(response.body);
+  }
 
 //     if (response.statusCode == 200) {
 //       var data = json.decode(response.body);
