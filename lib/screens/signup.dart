@@ -227,7 +227,7 @@ class _SignUpState extends State<SignUp> {
     // Navigate to the home page
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => HomePage()),
+      MaterialPageRoute(builder: (context) => LoginSignup()),
     );
   } else {
     Fluttertoast.showToast(msg: 'Registration failed: ${response.statusCode}');

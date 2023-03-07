@@ -48,12 +48,25 @@ class _LoginSignupState extends State<LoginSignup> {
     super.initState();
   }
 
-     Future login() async {
-    var url = Uri.http("http:///localhost/login.php");
+    void login(String user, String pass) async {
+    var url = Uri.http('localhost', '/flutter_api/login.php');
     var response = await http.post(url, body: {
-      "username": user.text,
-      "password": pass.text,
+      "username": user,
+      "password": pass,
     });
+
+    if (response.statusCode == 200) {
+    Fluttertoast.showToast(msg: 'Login successful');
+    // Navigate to the home page
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => HomePage()),
+    );
+  } else {
+    Fluttertoast.showToast(msg: 'Username and pssword invalid: ${response.statusCode}');
+    // Log the response body for debugging purposes
+    print(response.body);
+  }
     
     // var data = json.decode(response.body);
     // if (data == "Success") {
@@ -172,7 +185,10 @@ class _LoginSignupState extends State<LoginSignup> {
                         textStyle:
                             const TextStyle(fontSize: 18, fontWeight: FontWeight.normal)),
                         onPressed: () {
-                          login();
+                          login(user.text, pass.text);
+                          Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) =>HomePage()));
                         },
                       )
                   ),
