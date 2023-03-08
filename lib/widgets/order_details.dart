@@ -8,6 +8,14 @@ class OrderDetails extends StatefulWidget {
 }
 
   class _OrderDetails extends State<OrderDetails> {
+  TextEditingController service = TextEditingController();
+  TextEditingController paperSize = TextEditingController();
+  TextEditingController price = TextEditingController();
+  TextEditingController set= TextEditingController();
+  TextEditingController collectDate = TextEditingController();
+  TextEditingController notes = TextEditingController();
+
+
   @override
   Widget build(BuildContext context) {
     return  Card(
@@ -43,6 +51,7 @@ class OrderDetails extends StatefulWidget {
               Padding(
                 padding: const EdgeInsets.all(10),
                 child: TextField(
+                  controller: service,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: 'Type of Service',
@@ -55,6 +64,7 @@ class OrderDetails extends StatefulWidget {
                 //alignment: Alignment.center,
                 padding: const EdgeInsets.all(10),
                 child: TextField(
+                  controller: paperSize,
                 decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: 'Paper Size',
@@ -92,6 +102,7 @@ class OrderDetails extends StatefulWidget {
               Padding(
                 padding: const EdgeInsets.all(10),
                 child: TextField(
+                  controller: price,
                   decoration: InputDecoration(
                     labelText: 'Price',
                     prefixIcon: Icon(Icons.money),
@@ -104,6 +115,7 @@ class OrderDetails extends StatefulWidget {
               Padding(
                 padding: const EdgeInsets.all(10),
                 child: TextField(
+                  controller: set,
                     decoration: InputDecoration(
                       labelText: 'Number of Set',
                       prefixIcon: Icon(Icons.book),
@@ -116,6 +128,7 @@ class OrderDetails extends StatefulWidget {
               Padding(
                 padding: const EdgeInsets.all(10),
                 child: TextField(
+                  controller: collectDate,
                     decoration: InputDecoration(
                       labelText: 'Collection Date',
                       prefixIcon: Icon(Icons.date_range),
@@ -128,6 +141,7 @@ class OrderDetails extends StatefulWidget {
               Padding(
                 padding: const EdgeInsets.all(10),
                 child: TextField(
+                  controller: notes,
                     decoration: InputDecoration(
                       labelText: 'Notes (optional)',
                       prefixIcon: Icon(Icons.note),
