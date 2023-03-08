@@ -81,7 +81,7 @@ class BottomBar extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 Text(
-                  'Copyright © 2023 | Choongs Printing Shop',
+                  'Copyright © 2023 | Choong\'s Printing Shop',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 14,
