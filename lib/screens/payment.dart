@@ -4,6 +4,7 @@ import 'package:online_printing/widgets/order_details.dart';
 import 'package:online_printing/widgets/top_bar_contents.dart';
 import 'package:online_printing/widgets/menu_drawer.dart';
 import 'package:online_printing/widgets/customer_details.dart';
+import 'package:online_printing/screens/order_page.dart';
 import 'home_page.dart';
 
 class PaymentPage extends StatefulWidget {
@@ -162,7 +163,7 @@ class _PaymentPageState extends State<PaymentPage> {
             ),
           ),
         ),
-      ); 
+      ),
         CustomerDetails(),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,

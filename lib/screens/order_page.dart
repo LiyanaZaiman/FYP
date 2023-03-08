@@ -4,7 +4,7 @@ import 'package:online_printing/widgets/order_details.dart';
 import 'package:online_printing/widgets/top_bar_contents.dart';
 import 'package:online_printing/widgets/menu_drawer.dart';
 import 'package:online_printing/widgets/customer_details.dart';
-import 'package:online_printing/screens/payment';
+import 'package:online_printing/screens/payment.dart';
 import 'home_page.dart';
 
 class OrderPage extends StatefulWidget {
