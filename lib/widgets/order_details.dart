@@ -85,7 +85,7 @@ class OrderDetails extends StatefulWidget {
                         });
                       },
                     ),
-                ),
+                  ),
                 ],
               ),
               //Price     

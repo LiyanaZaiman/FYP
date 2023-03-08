@@ -15,14 +15,15 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-  TextEditingController user = TextEditingController();
+  TextEditingController name = TextEditingController();
   TextEditingController pass = TextEditingController();
   TextEditingController address1 = TextEditingController();
   TextEditingController address2 = TextEditingController();
   TextEditingController state = TextEditingController();
+  TextEditingController postcode = TextEditingController();
   TextEditingController email = TextEditingController();
   TextEditingController gender = TextEditingController();
-    TextEditingController phone = TextEditingController();
+  TextEditingController phone = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -61,6 +62,7 @@ class _SignUpState extends State<SignUp> {
                   Padding(
                     padding: const EdgeInsets.all(10.0,),
                     child: TextField(
+                      controller: name,
                       decoration: InputDecoration(
                         labelText: 'Customer Name',
                         prefixIcon: Icon(Icons.person),
@@ -69,9 +71,48 @@ class _SignUpState extends State<SignUp> {
                       ),
                     ),
                   ),
+              //Label - Gender
+              Padding(
+                //alignment: Alignment.center,
+                padding: const EdgeInsets.all(10),
+                child: Text(
+                'Gender',
+                  style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Row(
+                children: [
+                Expanded(
+                  child: RadioListTile(
+                  value: 'male',
+                  title: Text('Male'),
+                  groupValue: 'Male',
+                  onChanged: (value) {
+                    setState(() {
+                      });
+                    },
+                  ),
+                ),
+                Expanded(
+                  child: RadioListTile(
+                    value: 'female',
+                    title: Text('Female'),
+                    groupValue: 'female',
+                      onChanged: (value) {
+                      setState(() {
+                        });
+                      },
+                    ),
+                ),
+                ],
+              ),
                   Padding(
                     padding: const EdgeInsets.all(10.0,),
                     child: TextField(
+                      controller: phone,
                       decoration: InputDecoration(
                         labelText: 'PhoneNumber',
                         prefixIcon: Icon(Icons.phone_android_rounded),
@@ -83,6 +124,7 @@ class _SignUpState extends State<SignUp> {
                   Padding(
                     padding: const EdgeInsets.all(10.0,),
                     child: TextField(
+                      controller: email,
                       decoration: InputDecoration(
                         labelText: 'Email',
                         prefixIcon: Icon(Icons.email),
@@ -94,6 +136,7 @@ class _SignUpState extends State<SignUp> {
                   Padding(
                     padding: const EdgeInsets.all(10.0,),
                     child: TextField(
+                      controller: address1,
                       decoration: InputDecoration(
                         labelText: 'Address Line 1',
                         prefixIcon: Icon(Icons.house),
@@ -105,6 +148,7 @@ class _SignUpState extends State<SignUp> {
                   Padding(
                     padding: const EdgeInsets.all(10.0,),
                     child: TextField(
+                      controller: address2,
                       decoration: InputDecoration(
                         labelText: 'Address Line 2',
                         prefixIcon: Icon(Icons.house),
@@ -119,6 +163,7 @@ class _SignUpState extends State<SignUp> {
                         child: Padding(
                           padding: const EdgeInsets.all(10.0,),
                           child: TextField(
+                            controller: postcode,
                             decoration: InputDecoration(
                               labelText: 'Postcode',
                               prefixIcon: Icon(Icons.location_city),
@@ -132,6 +177,7 @@ class _SignUpState extends State<SignUp> {
                         child: Padding(
                           padding: const EdgeInsets.all(10.0,),
                           child: TextField(
+                            controller: state,
                             decoration: InputDecoration(
                               labelText: 'State',
                               prefixIcon: Icon(Icons.location_city_outlined),
@@ -143,19 +189,19 @@ class _SignUpState extends State<SignUp> {
                       ),
                     ],
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: TextField(
-                      controller: user,
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        labelText: 'Username',
-                        prefixIcon: Icon(Icons.person_2),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8)),
-                      ),
-                    ),
-                  ),
+                  // Padding(
+                  //   padding: const EdgeInsets.all(10.0),
+                  //   child: TextField(
+                  //     controller: user,
+                  //     obscureText: true,
+                  //     decoration: InputDecoration(
+                  //       labelText: 'Username',
+                  //       prefixIcon: Icon(Icons.person_2),
+                  //       border: OutlineInputBorder(
+                  //           borderRadius: BorderRadius.circular(8)),
+                  //     ),
+                  //   ),
+                  // ),
                   Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: TextField(
@@ -172,38 +218,52 @@ class _SignUpState extends State<SignUp> {
                   Row(
                     children: <Widget>[
                       Expanded(
-                        child: MaterialButton(
-                          height: 60,
-                          color: Colors.blueGrey,
-                          child: Text('Register',
-                              style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white)),
-                          onPressed: () {
-                            _showDialog();
-                            register(user.text, pass.text);
-                            //Navigator.push(context, MaterialPageRoute(builder: (context)=>OrderPage(),),);
-                          },
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                            top:10.0,
+                            left: 10,
+                            right: 10,
+                            bottom: 30),
+                          child: MaterialButton(
+                            height: 60,
+                            color: Colors.blueGrey,
+                            child: Text('Register',
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white)),
+                            onPressed: () {
+                              _showDialog();
+                              register(email.text, pass.text);
+                              //Navigator.push(context, MaterialPageRoute(builder: (context)=>OrderPage(),),);
+                            },
+                          ),
                         ),
                       ),
                       Expanded(
-                        child: MaterialButton(
-                          height: 60,
-                          color: Colors.amber[100],
-                          child: Text('Login',
-                              style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black)),
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => LoginSignup(),
-                              ),
-                            );
-                          },
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                            top:10.0,
+                            left: 10,
+                            right: 10,
+                            bottom: 30),
+                          child: MaterialButton(
+                            height: 60,
+                            color: Colors.amber[100],
+                            child: Text('Login',
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black)),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => LoginSignup(),
+                                ),
+                              );
+                            },
+                          ),
                         ),
                       ),
                     ],
