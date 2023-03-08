@@ -72,9 +72,9 @@ class _PaymentPageState extends State<PaymentPage> {
             width: 700,
             child: Column(
               children: <Widget>[
-                //Customer Information
+                //WOrdings
                 Padding(
-                padding: EdgeInsets.all(10.0),
+                padding: EdgeInsets.all(20.0),
                   child: Text(
                   'You are almost there ^-^',
                     style: TextStyle(
@@ -93,7 +93,7 @@ class _PaymentPageState extends State<PaymentPage> {
                     ),
                   ),
                 ),
-              //Label - payment method
+              // //Label - payment method
               Row(
                 children: [
                 Expanded(
@@ -114,32 +114,37 @@ class _PaymentPageState extends State<PaymentPage> {
                     groupValue: 'cash',
                       onChanged: (value) {
                       setState(() {
-                        });
-                      },
-                    ),
+                      });
+                    },
+                  ) 
                 ),
+              ],
+              ), 
                 Padding(
                 padding: EdgeInsets.all(10.0),
                   child: Text(
                   'Scan QR Code',
                     style: TextStyle(
-                      fontSize: 14,
+                      fontSize: 18,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
                 SizedBox(
-                height: screenSize.height * 0.80,
+                height: screenSize.height * 0.60,
                 width: screenSize.width,
-                child: Image.asset(
-                'assets/images/image01.jpg',
-                fit: BoxFit.cover,
-                  )
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Image.asset(
+                  'assets/images/qrCode.PNG',
+                  fit: BoxFit.contain,
+                    ),
+                )
                 ),
                 Padding(
                 padding: EdgeInsets.all(10.0),
                   child: Text(
-                  '2231237054 \nBank Rakyat\nNur Liyana Zaiman',
+                  '\t\t2231237054 \n\t\tBank Rakyat\nNur Liyana Zaiman',
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
@@ -148,7 +153,11 @@ class _PaymentPageState extends State<PaymentPage> {
                 ),
               //File Upload
               Padding(
-                padding: const EdgeInsets.all(10),
+                padding: const EdgeInsets.only(
+                  top:10,
+                  left: 10,
+                  right: 10,
+                  bottom: 40),
                 child: TextField(
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
@@ -157,14 +166,11 @@ class _PaymentPageState extends State<PaymentPage> {
                   ),
                 ),
               ),
-                ],
-              ),  
-              ]
+              ],
             ),
           ),
         ),
       ),
-        CustomerDetails(),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -193,12 +199,12 @@ class _PaymentPageState extends State<PaymentPage> {
                     const EdgeInsets.symmetric(horizontal: 35, vertical: 30),
                 textStyle:
                     const TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-                ),
+              ),
             ),
           ],
         ),
         BottomBar(),
-        ],
+      ],
       ),
     )
   );
