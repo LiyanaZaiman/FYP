@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
@@ -16,14 +17,14 @@ class SignUp extends StatefulWidget {
 
 class _SignUpState extends State<SignUp> {
   TextEditingController name = TextEditingController();
-  TextEditingController pass = TextEditingController();
-  TextEditingController address1 = TextEditingController();
-  TextEditingController address2 = TextEditingController();
-  TextEditingController state = TextEditingController();
-  TextEditingController postcode = TextEditingController();
-  TextEditingController email = TextEditingController();
   TextEditingController gender = TextEditingController();
   TextEditingController phone = TextEditingController();
+  TextEditingController email = TextEditingController();
+  TextEditingController address1 = TextEditingController();
+  TextEditingController address2 = TextEditingController();
+  TextEditingController postcode = TextEditingController();
+  TextEditingController state = TextEditingController();
+  TextEditingController pass = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -234,7 +235,16 @@ class _SignUpState extends State<SignUp> {
                                     color: Colors.white)),
                             onPressed: () {
                               _showDialog();
-                              register(email.text, pass.text);
+                              register(
+                                name.text, 
+                                gender.text, 
+                                phone.text, 
+                                email.text, 
+                                address1.text,
+                                address2.text,
+                                postcode.text,
+                                state.text,
+                                pass.text);
                               //Navigator.push(context, MaterialPageRoute(builder: (context)=>OrderPage(),),);
                             },
                           ),
@@ -278,12 +288,30 @@ class _SignUpState extends State<SignUp> {
   }
 
   //Registration 
-   void register(String user, String pass) async {
+   void register(
+    String name, 
+    String gender, 
+    String phone, 
+    String email, 
+    String address1,
+    String address2,
+    String postcode,
+    String state,
+    String pass) async {
     //ipaddress: 172.18.82.141
     //var url = Uri.http('https://172.18.82.141/register.php');
     //http://localhost/flutter_api/register.php
     var url = Uri.http('localhost', '/flutter_api/register.php');
-    var response = await http.post(url, body: { "username": user, "password": pass });
+    var response = await http.post(url, body: { 
+      "name": name, 
+      "gender": gender,
+      "phone": phone, 
+      "email": email,
+      "addressline1": address1, 
+      "addressline2": address2,
+      "postcode": postcode, 
+      "state": state,
+      "password": pass, });
     // var response = await http.post(url, body: {
     //   "username": user.text,
     //   "password": pass.text,
