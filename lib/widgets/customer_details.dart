@@ -160,7 +160,7 @@ class CustomerDetails extends StatefulWidget {
                       padding: const EdgeInsets.all(10),
                       child: TextField(
                     decoration: InputDecoration(
-                      labelText: 'Address Line 1',
+                      labelText: 'State',
                       prefixIcon: Icon(Icons.person),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8)),
