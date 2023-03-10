@@ -6,8 +6,8 @@ import 'package:online_printing/screens/home_page.dart';
 import 'package:online_printing/screens/login_page.dart';
 import 'package:online_printing/screens/order_page.dart';
 import 'package:online_printing/screens/login_signup.dart';
-// import 'DashBoard.dart';
-// import 'main.dart';
+
+enum Gender { male, female }
 
 class SignUp extends StatefulWidget {
   @override
@@ -16,7 +16,7 @@ class SignUp extends StatefulWidget {
 
 class _SignUpState extends State<SignUp> {
   TextEditingController name = TextEditingController();
-  TextEditingController gender = TextEditingController();
+  //TextEditingController gender = TextEditingController();
   TextEditingController phone = TextEditingController();
   TextEditingController email = TextEditingController();
   TextEditingController address1 = TextEditingController();
@@ -24,6 +24,8 @@ class _SignUpState extends State<SignUp> {
   TextEditingController postcode = TextEditingController();
   TextEditingController state = TextEditingController();
   TextEditingController pass = TextEditingController();
+
+  Gender? _character = Gender.male;
 
   @override
   Widget build(BuildContext context) {
@@ -87,23 +89,22 @@ class _SignUpState extends State<SignUp> {
                 children: [
                 Expanded(
                   child: RadioListTile(
-                  value: 'male',
+                  value: Gender.male,
                   title: Text('Male'),
-                  groupValue: 'Male',
-                  onChanged: (value) {
-                    setState(() {
-                      });
+                  groupValue: _character,
+                  onChanged: (gender) {
+                    setState(() {gender; });
                     },
                   ),
                 ),
                 Expanded(
                   child: RadioListTile(
-                    value: 'female',
+                    value: Gender.female,
                     title: Text('Female'),
-                    groupValue: 'female',
-                      onChanged: (value) {
+                    groupValue: _character,
+                      onChanged: (gender) {
                       setState(() {
-                        });
+                        _character = gender;});
                       },
                     ),
                 ),
@@ -236,7 +237,7 @@ class _SignUpState extends State<SignUp> {
                               _showDialog();
                               register(
                                 name.text, 
-                                gender.text, 
+                                _character.toString(), 
                                 phone.text, 
                                 email.text, 
                                 address1.text,

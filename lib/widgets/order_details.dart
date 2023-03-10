@@ -2,6 +2,8 @@ import 'package:online_printing/screens/order_page.dart';
 import 'package:online_printing/widgets/responsive.dart';
 import 'package:flutter/material.dart';
 
+enum ColourMode { blackwhite, colour }
+
 class OrderDetails extends StatefulWidget {
   @override
   _OrderDetails createState() => _OrderDetails(); 
@@ -15,6 +17,7 @@ class OrderDetails extends StatefulWidget {
   TextEditingController collectDate = TextEditingController();
   TextEditingController notes = TextEditingController();
 
+  ColourMode? _character = ColourMode.blackwhite;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +43,7 @@ class OrderDetails extends StatefulWidget {
               Padding(
                 padding: const EdgeInsets.all(10),
                 child: TextField(
-                  decoration: const InputDecoration(
+                    decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Upload File Here',
                     prefixIcon: Icon(Icons.file_download),
@@ -51,8 +54,8 @@ class OrderDetails extends StatefulWidget {
               Padding(
                 padding: const EdgeInsets.all(10),
                 child: TextField(
-                  controller: service,
-              decoration: const InputDecoration(
+                controller: service,
+                decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: 'Type of Service',
                 prefixIcon: Icon(Icons.design_services),
@@ -72,27 +75,28 @@ class OrderDetails extends StatefulWidget {
                   ),
                 ),
               ),
+              //Radio Button
               Row(
                 children: [
                 Expanded(
                   child: RadioListTile(
-                  value: 'blackwhite',
+                  value: ColourMode.blackwhite,
                   title: Text('Black & White'),
-                  groupValue: 'blackwhite',
-                  onChanged: (value) {
+                  groupValue: _character,
+                  onChanged: (ColourMode? value) {
                     setState(() {
-                      });
+                      _character = value;});
                     },
                   ),
                 ),
                 Expanded(
                   child: RadioListTile(
-                    value: 'colour',
+                    value: ColourMode.colour,
                     title: Text('Colour'),
-                    groupValue: 'colour',
-                      onChanged: (value) {
+                    groupValue: _character,
+                      onChanged: (ColourMode? value) {
                       setState(() {
-                        });
+                        _character = value;});
                       },
                     ),
                   ),

@@ -4,12 +4,16 @@ import 'package:online_printing/widgets/responsive.dart';
 import 'package:online_printing/screens/login_signup.dart';
 import 'package:flutter/material.dart';
 
+enum DeliveryOption { delivery, selfCollect }
+
 class CustomerDetails extends StatefulWidget {
   @override
   _CustomerDetails createState() => _CustomerDetails(); 
 }
 
   class _CustomerDetails extends State<CustomerDetails> {
+    DeliveryOption? _character = DeliveryOption.delivery;
+
   @override
   Widget build(BuildContext context) {
     return  Card(
@@ -86,23 +90,23 @@ class CustomerDetails extends StatefulWidget {
                 children: [
                 Expanded(
                   child: RadioListTile(
-                  value: 'delivery',
+                  value: DeliveryOption.delivery,
                   title: Text('delivery'),
-                  groupValue: 'delivery',
-                  onChanged: (value) {
+                  groupValue: _character,
+                  onChanged: (DeliveryOption? value) {
                     setState(() {
-                      });
+                      _character = value;});
                     },
                   ),
                 ),
                 Expanded(
                   child: RadioListTile(
-                    value: 'Self Collect',
+                    value: DeliveryOption.selfCollect,
                     title: Text('self collect'),
-                    groupValue: 'self collect',
-                      onChanged: (value) {
+                    groupValue: _character,
+                      onChanged: (DeliveryOption? value) {
                       setState(() {
-                        });
+                        _character = value;});
                       },
                     ),
                 ),
