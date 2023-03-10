@@ -8,14 +8,16 @@ import 'package:online_printing/screens/payment.dart';
 import 'home_page.dart';
 
 class OrderPage extends StatefulWidget {
-  const OrderPage({super.key});
+  const OrderPage({Key? key}) : super(key: key);
 
   @override
   State<OrderPage> createState() => _OrderPageState();
+  
 }
 
+
 class _OrderPageState extends State<OrderPage> {
-    final ScrollController _scrollController = ScrollController();
+  final ScrollController _scrollController = ScrollController();
   double _scrollPosition = 0;
   double _opacity = 0;
 
@@ -30,6 +32,16 @@ class _OrderPageState extends State<OrderPage> {
     super.initState();
   }
   
+    // void _submitOrder() {
+  //   // Get the order details from OrderDetails widget
+  //   final Map<String, dynamic> orderDetails = _orderDetailsKey.currentState!.getOrderDetails(); 
+  //     Navigator.push(context, MaterialPageRoute(builder: (context) => PaymentPage()));
+                  
+                  
+  // }
+
+  // final GlobalKey<_OrderDetails> _orderDetailsKey = GlobalKey();  
+
 
   @override
   Widget build(BuildContext context) {
@@ -64,6 +76,7 @@ class _OrderPageState extends State<OrderPage> {
       controller: _scrollController,
       child: Column(
         children: [
+        //OrderDetails(key: _orderDetailsKey),
         OrderDetails(),
         CustomerDetails(),
         Row(
@@ -85,8 +98,8 @@ class _OrderPageState extends State<OrderPage> {
               child: ElevatedButton(
                 child: Text('Order Now'),
                 onPressed: () {
-                  Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => PaymentPage()));
+                  //_submitOrder();
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => PaymentPage()));
                   }, 
                 style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.blueAccent,
@@ -105,6 +118,7 @@ class _OrderPageState extends State<OrderPage> {
   );
 }
 }
+
 // class  OrderPage extends StatelessWidget{
 //   @override
 //   Widget build(BuildContext context) {
