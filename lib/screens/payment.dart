@@ -94,32 +94,32 @@ class _PaymentPageState extends State<PaymentPage> {
                   ),
                 ),
               // //Label - payment method
-              Row(
-                children: [
-                Expanded(
-                  child: RadioListTile(
-                  value: 'onlinetransafer',
-                  title: Text('Online Transfer'),
-                  groupValue: 'onlinetransafer',
-                  onChanged: (value) {
-                    setState(() {
-                      });
-                    },
-                  ),
-                ),
-                Expanded(
-                  child: RadioListTile(
-                    value: 'cash',
-                    title: Text('Cash'),
-                    groupValue: 'cash',
-                      onChanged: (value) {
-                      setState(() {
-                      });
-                    },
-                  ) 
-                ),
-              ],
-              ), 
+              // Row(
+              //   children: [
+              //   Expanded(
+              //     child: RadioListTile(
+              //     value: 'onlinetransafer',
+              //     title: Text('Online Transfer'),
+              //     groupValue: 'onlinetransafer',
+              //     onChanged: (value) {
+              //       setState(() {
+              //         });
+              //       },
+              //     ),
+              //   ),
+              //   Expanded(
+              //     child: RadioListTile(
+              //       value: 'cash',
+              //       title: Text('Cash'),
+              //       groupValue: 'cash',
+              //         onChanged: (value) {
+              //         setState(() {
+              //         });
+              //       },
+              //     ) 
+              //   ),
+              // ],
+              // ), 
                 Padding(
                 padding: EdgeInsets.all(10.0),
                   child: Text(

@@ -77,6 +77,71 @@ class OrderDetails extends StatefulWidget {
                 ),
               ),
             ),
+            //Print One Sided
+            Padding(
+              //alignment: Alignment.center,
+              padding: const EdgeInsets.all(10),
+              child: TextField(
+                controller: paperSize,
+              decoration: const InputDecoration(
+              border: OutlineInputBorder(),
+              labelText: 'Print One Sided',
+              prefixIcon: Icon(Icons.pages),
+                ),
+              ),
+            ),
+            //Potrait Orientation
+            Padding(
+              //alignment: Alignment.center,
+              padding: const EdgeInsets.all(10),
+              child: TextField(
+                controller: paperSize,
+              decoration: const InputDecoration(
+              border: OutlineInputBorder(),
+              labelText: 'Orientation',
+              prefixIcon: Icon(Icons.pages),
+                ),
+              ),
+            ),
+            //No staplers
+            Padding(
+              //alignment: Alignment.center,
+              padding: const EdgeInsets.all(10),
+              child: TextField(
+                controller: paperSize,
+              decoration: const InputDecoration(
+              border: OutlineInputBorder(),
+              labelText: 'Staplers',
+              prefixIcon: Icon(Icons.pages),
+                ),
+              ),
+            ),
+            //Sorted
+            Padding(
+              //alignment: Alignment.center,
+              padding: const EdgeInsets.all(10),
+              child: TextField(
+                controller: paperSize,
+              decoration: const InputDecoration(
+              border: OutlineInputBorder(),
+              labelText: 'Sorted',
+              prefixIcon: Icon(Icons.pages),
+                ),
+              ),
+            ),
+            //Pages per sheet
+            Padding(
+              //alignment: Alignment.center,
+              padding: const EdgeInsets.all(10),
+              child: TextField(
+                controller: paperSize,
+              decoration: const InputDecoration(
+              border: OutlineInputBorder(),
+              labelText: 'Pages per sheet',
+              prefixIcon: Icon(Icons.pages),
+                ),
+              ),
+            ),
             //Radio Button
             Row(
               children: [
@@ -103,20 +168,7 @@ class OrderDetails extends StatefulWidget {
                   ),
                 ),
               ],
-            ),
-            //Price     
-            Padding(
-              padding: const EdgeInsets.all(10),
-              child: TextField(
-                controller: price,
-                decoration: InputDecoration(
-                  labelText: 'Price',
-                  prefixIcon: Icon(Icons.money),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8)),
-                ),
-              ),
-            ),    
+            ),   
             //Number of Set
             Padding(
               padding: const EdgeInsets.all(10),
@@ -130,6 +182,19 @@ class OrderDetails extends StatefulWidget {
                 ),
               ),
             ),   
+            //Price     
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: TextField(
+                controller: price,
+                decoration: InputDecoration(
+                  labelText: 'Price',
+                  prefixIcon: Icon(Icons.money),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8)),
+                ),
+              ),
+            ), 
             //Collection Date
             Padding(
               padding: const EdgeInsets.all(10),
