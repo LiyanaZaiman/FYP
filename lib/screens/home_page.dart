@@ -1,7 +1,4 @@
 // ignore_for_file: prefer_const_constructors
-
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:online_printing/screens/order_page.dart';
 import 'package:online_printing/widgets/bottom_bar.dart';

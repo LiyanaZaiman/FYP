@@ -3,6 +3,7 @@ import 'package:online_printing/widgets/responsive.dart';
 import 'package:flutter/material.dart';
 
 enum ColourMode { blackwhite, colour }
+const List<String> list = <String>['One', 'Two', 'Three', 'Four'];
 
 class OrderDetails extends StatefulWidget {
   const OrderDetails({super.key});
@@ -20,6 +21,7 @@ class OrderDetails extends StatefulWidget {
   TextEditingController notes = TextEditingController();
 
   ColourMode? _character = ColourMode.blackwhite;
+  String dropdownValue = list.first;
 
   @override
   Widget build(BuildContext context) {
@@ -181,7 +183,27 @@ class OrderDetails extends StatefulWidget {
                         borderRadius: BorderRadius.circular(8)),
                 ),
               ),
-            ),   
+            ),  
+            //Dropdown list
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: DropdownButton <String>(
+                value: dropdownValue,
+                onChanged: (String? value) {
+                  //This is called when the user selects an item.
+                  setState(() {
+                    dropdownValue = value!;
+                    icon: const Icon(Icons.arrow_downward);
+                    underline: Container(height: 2, color: Colors.blue
+                    );
+                  });
+                },
+                items: list.map<DropdownMenuItem<String>>((String value){
+                return DropdownMenuItem(
+                  value: value,
+                  child: Text(value));
+              }).toList(), ),
+            ),
             //Price     
             Padding(
               padding: const EdgeInsets.all(10),
