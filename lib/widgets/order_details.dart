@@ -3,7 +3,7 @@ import 'package:online_printing/widgets/responsive.dart';
 import 'package:flutter/material.dart';
 
 enum ColourMode { blackwhite, colour }
-const List<String> list = <String>['One', 'Two', 'Three', 'Four'];
+const List<String> list = <String>['A4', 'A3', 'A5'];
 
 class OrderDetails extends StatefulWidget {
   const OrderDetails({super.key});
@@ -67,17 +67,46 @@ class OrderDetails extends StatefulWidget {
               ),
             ),
             //Paper Size
-            Padding(
-              //alignment: Alignment.center,
-              padding: const EdgeInsets.all(10),
-              child: TextField(
-                controller: paperSize,
-              decoration: const InputDecoration(
-              border: OutlineInputBorder(),
-              labelText: 'Paper Size',
-              prefixIcon: Icon(Icons.pages),
+            Row(
+              children: [
+                Padding(
+                  //alignment: Alignment.center,
+                  padding: const EdgeInsets.all(10),
+                  child: Text('Paper Size:'),
+                  // child: TextField(
+                  //   controller: paperSize,
+                  // decoration: const InputDecoration(
+                  // border: OutlineInputBorder(),
+                  // labelText: 'Paper Size',
+                  // prefixIcon: Icon(Icons.pages),
+                  //   ),
+                  // ),
                 ),
-              ),
+                //Dropdown list
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: DropdownButton <String>(
+                      value: dropdownValue,
+                      isExpanded: true,
+                      
+                      onChanged: (String? value) {
+                        //This is called when the user selects an item.
+                        setState(() {
+                          dropdownValue = value!;
+                          icon: const Icon(Icons.arrow_downward);
+                          underline: Container(height: 2,color: Colors.blueGrey
+                          );
+                        });
+                      },
+                      items: list.map<DropdownMenuItem<String>>((String value){
+                      return DropdownMenuItem(
+                        value: value,
+                        child: Text(value));
+                    }).toList(), ),
+                  ),
+                ),
+              ],
             ),
             //Print One Sided
             Padding(
@@ -184,26 +213,7 @@ class OrderDetails extends StatefulWidget {
                 ),
               ),
             ),  
-            //Dropdown list
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: DropdownButton <String>(
-                value: dropdownValue,
-                onChanged: (String? value) {
-                  //This is called when the user selects an item.
-                  setState(() {
-                    dropdownValue = value!;
-                    icon: const Icon(Icons.arrow_downward);
-                    underline: Container(height: 2, color: Colors.blue
-                    );
-                  });
-                },
-                items: list.map<DropdownMenuItem<String>>((String value){
-                return DropdownMenuItem(
-                  value: value,
-                  child: Text(value));
-              }).toList(), ),
-            ),
+
             //Price     
             Padding(
               padding: const EdgeInsets.all(10),
