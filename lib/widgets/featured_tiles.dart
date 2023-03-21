@@ -13,7 +13,7 @@ class FeaturedTiles extends StatelessWidget {
   final List<String> assets = [
     'assets/images/papers.png',
     'assets/images/poster.png',
-    'assets/images/hard cover.jpg',
+    'assets/images/hardCover.jpg',
   ];
 
   final List<String> title = ['Normal Paper', 'Hard Cover', 'Poster'];
