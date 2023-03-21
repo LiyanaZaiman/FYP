@@ -15,7 +15,7 @@ class FeaturedTiles extends StatelessWidget {
     'assets/images/test3.png',
   ];
 
-  final List<String> title = ['Fast', 'Easy', 'Flexible'];
+  final List<String> title = ['Normal Paper', 'Hard Cover', 'Poster'];
 
   @override
   Widget build(BuildContext context) {
@@ -84,6 +84,18 @@ class FeaturedTiles extends StatelessWidget {
                       Row(
                         children: [
                           Column(children: [
+                            Padding(padding: EdgeInsets.only(
+                            bottom: screenSize.height/70
+                          ),
+                          child: Text(
+                            title[pageIndex],
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontFamily: "Montserrat",
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          ),
                           SizedBox(
                             height: screenSize.width/2.5,
                             width: screenSize.width/1.5,
@@ -94,18 +106,6 @@ class FeaturedTiles extends StatelessWidget {
                                 fit:BoxFit.contain,)
                               ),
                           ),
-                          Padding(padding: EdgeInsets.only(
-                            top: screenSize.height/70
-                          ),
-                          child: Text(
-                            title[pageIndex],
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontFamily: "Montserrat",
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          )
                         ],
                       ),
                     SizedBox(width: screenSize.width/15,)
@@ -128,6 +128,19 @@ class FeaturedTiles extends StatelessWidget {
                 ...Iterable<int>.generate(assets.length).map(
                   (int pageIndex) => Column(
                     children: [
+                        Padding(
+                        padding: EdgeInsets.only(
+                          bottom: screenSize.height / 70,
+                        ),
+                        child: Text(
+                          title[pageIndex],
+                          style: TextStyle(
+                            fontSize: 24,
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
                       SizedBox(
                         height: screenSize.width / 6,
                         width: screenSize.width / 3.8,
@@ -152,19 +165,7 @@ class FeaturedTiles extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                          top: screenSize.height / 70,
-                        ),
-                        child: Text(
-                          title[pageIndex],
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontFamily: 'Montserrat',
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
+
                     ],
                   ),
                 ),
