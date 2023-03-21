@@ -285,7 +285,7 @@ Widget build(BuildContext context) {
         ),
           //MainHeading(screenSize: screenSize),
           FeaturedHeading(screenSize: screenSize),
-          productList(),
+          //productList(),
           FeaturedTiles(screenSize: screenSize),
           //MainCarousel(),
           SizedBox(height: screenSize.height / 10,),
