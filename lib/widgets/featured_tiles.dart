@@ -1,4 +1,5 @@
 import 'package:online_printing/widgets/responsive.dart';
+import 'package:online_printing/screens/order_page.dart';
 import 'package:flutter/material.dart';
 
 class FeaturedTiles extends StatelessWidget {
@@ -10,9 +11,9 @@ class FeaturedTiles extends StatelessWidget {
   final Size screenSize;
 
   final List<String> assets = [
-    'assets/images/test1.png',
-    'assets/images/test2.png',
-    'assets/images/test3.png',
+    'assets/images/papers.png',
+    'assets/images/poster.png',
+    'assets/images/hard cover.jpg',
   ];
 
   final List<String> title = ['Normal Paper', 'Hard Cover', 'Poster'];
@@ -126,47 +127,57 @@ class FeaturedTiles extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 ...Iterable<int>.generate(assets.length).map(
-                  (int pageIndex) => Column(
-                    children: [
-                        Padding(
-                        padding: EdgeInsets.only(
-                          bottom: screenSize.height / 70,
-                        ),
-                        child: Text(
-                          title[pageIndex],
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontFamily: 'Montserrat',
-                            fontWeight: FontWeight.bold,
+                  (int pageIndex) => InkWell(
+                      onTap: () {
+                      Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) =>OrderPage()));
+                  },
+                    child: Column(
+                      children: [
+                          Padding(
+                          padding: EdgeInsets.only(
+                            bottom: screenSize.height / 70,
+                          ),
+                          child: Text(
+                            title[pageIndex],
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
-                      ),
-                      SizedBox(
-                        height: screenSize.width / 6,
-                        width: screenSize.width / 3.8,
-                        child: Container(
-                          decoration: BoxDecoration(
-                           borderRadius: BorderRadius.circular(20.0),
-                            image: DecorationImage(
-                            fit: BoxFit.contain,
-                            image: AssetImage(
-                              assets[pageIndex],
-                             //fit: BoxFit.cover,
+                        SizedBox(
+                          height: screenSize.width / 6,
+                          width: screenSize.width / 3.8,
+                          child: Container(
+                            decoration: BoxDecoration(
+                             borderRadius: BorderRadius.circular(20.0),
+                             
+                              image: DecorationImage(
+                              fit: BoxFit.contain,
+                              image: AssetImage(
+                                assets[pageIndex],
+                                
+                               //fit: BoxFit.cover,
+                              ),
+                              
+                              ),
+                              boxShadow: [
+                                BoxShadow(
+                                  offset: Offset(0, 10),
+                                  blurRadius: 20,
+                                  spreadRadius: 5,
+                                  color:Colors.grey.withOpacity(0.3),
+                                ),
+                              ],
                             ),
-                            ),
-                            boxShadow: [
-                              BoxShadow(
-                                offset: Offset(0, 10),
-                                blurRadius: 20,
-                                spreadRadius: 5,
-                                color:Colors.grey.withOpacity(0.3),
-                              )
-                            ]
                           ),
                         ),
-                      ),
-
-                    ],
+                  
+                      ],
+                    ),
                   ),
                 ),
               ],
