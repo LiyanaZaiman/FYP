@@ -24,7 +24,6 @@ class _SignUpState extends State<SignUp> {
   TextEditingController postcode = TextEditingController();
   TextEditingController state = TextEditingController();
   TextEditingController pass = TextEditingController();
-
   Gender? _character = Gender.male;
 
   @override

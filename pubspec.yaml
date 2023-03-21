@@ -84,8 +84,8 @@ flutter:
    - assets/images/printing_images.png
    - assets/images/qrCode.PNG
    - assets/images/papers.png
-   - assets/images/poster.png
    - assets/images/hardCover.jpg
+   - assets/images/poster.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

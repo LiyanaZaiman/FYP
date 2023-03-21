@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:online_printing/screens/aboutUs.dart';
 import 'package:online_printing/screens/signup.dart';
 import 'package:online_printing/widgets/top_bar_contents.dart';
 import 'dart:convert';
@@ -31,30 +32,12 @@ class _LoginPageState extends State<LoginPage> {
   }
 
     @override
+    
   void initState() {
     _scrollController.addListener(_scrollListener);
     super.initState();
   }
-
-    void login(String user, String pass) async {
-    var url = Uri.http('localhost', '/flutter_api/login.php');
-    var response = await http.post(url, body: {
-      "username": user,
-      "password": pass,
-    });
-
-    if (response.statusCode == 200) {
-    Fluttertoast.showToast(msg: 'Login successful');
-    // Navigate to the home page
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => HomePage()),
-    );
-  } else {
-    Fluttertoast.showToast(msg: 'Username and pssword invalid: ${response.statusCode}');
-    // Log the response body for debugging purposes
-    print(response.body);
-  }
+    
     
     // var data = json.decode(response.body);
     // if (data == "Success") {
@@ -76,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
     //     fontSize: 25, 
     //     backgroundColor: Colors.red);
     // }
-  }
+ 
 
   
   @override
@@ -176,7 +159,7 @@ class _LoginPageState extends State<LoginPage> {
                           login(user.text, pass.text);
                           Navigator.pushReplacement(
                           context,
-                          MaterialPageRoute(builder: (context) =>HomePage()));
+                          MaterialPageRoute(builder: (context) =>AboutUs()));
                         },
                       )
                   ),
@@ -203,8 +186,30 @@ class _LoginPageState extends State<LoginPage> {
           ),
         );
   }
-}
+  //Login
+    void login(String user, String pass) async {
+    var url = Uri.http('localhost', '/flutter_api/login.php');
+    var response = await http.post(url, body: {
+      "username": user,
+      "password": pass,
+    });
 
+    print(response.statusCode);
+
+    if (response.statusCode == 200) {
+    Fluttertoast.showToast(msg: 'Login successful');
+    // Navigate to the home page
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => HomePage()),
+    );
+  } else {
+    Fluttertoast.showToast(msg: 'Username and pssword invalid: ${response.statusCode}');
+    // Log the response body for debugging purposes
+    print(response.body);
+  }
+   }
+}
 // class  LoginSignup extends StatelessWidget{
 //   @override
 //   Widget build(BuildContext context) {
