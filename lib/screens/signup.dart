@@ -233,7 +233,7 @@ class _SignUpState extends State<SignUp> {
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white)),
                             onPressed: () {
-                              _showDialog();
+                              //_showDialog();
                               register(
                                 name.text, 
                                 _character.toString(), 
@@ -315,18 +315,55 @@ class _SignUpState extends State<SignUp> {
     //   "username": user.text,
     //   "password": pass.text,
     // });
-    if (response.statusCode == 200) {
-    Fluttertoast.showToast(msg: 'Registration successful');
-    // Navigate to the home page
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => LoginSignup()),
-    );
-  } else {
-    Fluttertoast.showToast(msg: 'Registration failed: ${response.statusCode}');
-    // Log the response body for debugging purposes
-    print(response.body);
-  }
+  //   if (response.statusCode == 200) {
+  //   Fluttertoast.showToast(msg: 'Registration successful');
+  //   // Navigate to the home page
+  //   Navigator.pushReplacement(
+  //     context,
+  //     MaterialPageRoute(builder: (context) => LoginSignup()),
+  //   );
+  // } else {
+  //   Fluttertoast.showToast(msg: 'Registration failed: ${response.statusCode}');
+  //   // Log the response body for debugging purposes
+  //   print(response.body);
+  // }
+
+      if (response.statusCode == 200) {
+      var userData = json.decode(response.body);
+      if (userData == "ERROR"){
+        showDialog(context: (context), 
+        builder: (context) => AlertDialog(
+          title: Text("Message"),
+          content: Text("This User already Exit!"),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text('Close'),
+            ),
+          ],
+        )
+        );
+      }
+      else {
+        showDialog(context: (context), 
+        builder: (context) => AlertDialog(
+          title: Text("Message"),
+          content: Text("Signup Successful"),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text('Close'),
+            ),
+          ],
+        )
+        );
+        print(userData);
+      }
+    }
   }
 
   // Define a function to show the pop-up dialog
