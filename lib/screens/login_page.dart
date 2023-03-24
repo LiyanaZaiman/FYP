@@ -3,7 +3,6 @@ import 'package:online_printing/screens/aboutUs.dart';
 import 'package:online_printing/screens/signup.dart';
 import 'package:online_printing/widgets/top_bar_contents.dart';
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
@@ -37,30 +36,6 @@ class _LoginPageState extends State<LoginPage> {
     _scrollController.addListener(_scrollListener);
     super.initState();
   }
-    
-    
-    // var data = json.decode(response.body);
-    // if (data == "Success") {
-    //   Fluttertoast.showToast(
-    //     msg:
-    //     'Login Successful',
-    //     toastLength: Toast.LENGTH_SHORT,
-    //     gravity: ToastGravity.CENTER,
-    //     timeInSecForIosWeb: 1,
-    //     fontSize: 25, 
-    //     backgroundColor: Colors.green);
-    //   Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage(),),);
-    // } else {
-    //   Fluttertoast.showToast(
-    //     msg:'Username and password invalid',
-    //     toastLength: Toast.LENGTH_SHORT,
-    //     gravity: ToastGravity.CENTER,
-    //     timeInSecForIosWeb: 1,
-    //     fontSize: 25, 
-    //     backgroundColor: Colors.red);
-    // }
- 
-
   
   @override
   Widget build(BuildContext context) {
@@ -157,9 +132,9 @@ class _LoginPageState extends State<LoginPage> {
                             const TextStyle(fontSize: 18, fontWeight: FontWeight.normal)),
                         onPressed: () {
                           login(user.text, pass.text);
-                          Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(builder: (context) =>AboutUs()));
+                          // Navigator.pushReplacement(
+                          // context,
+                          // MaterialPageRoute(builder: (context) =>AboutUs()));
                         },
                       )
                   ),
@@ -194,20 +169,54 @@ class _LoginPageState extends State<LoginPage> {
       "password": pass,
     });
 
-    print(response.statusCode);
-
     if (response.statusCode == 200) {
-    Fluttertoast.showToast(msg: 'Login successful');
-    // Navigate to the home page
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => HomePage()),
-    );
-  } else {
-    Fluttertoast.showToast(msg: 'Username and pssword invalid: ${response.statusCode}');
-    // Log the response body for debugging purposes
-    print(response.body);
-  }
+      var userData = json.decode(response.body);
+      if (userData == "ERROR"){
+        showDialog(context: (context), 
+        builder: (context) => AlertDialog(
+          title: Text("Message"),
+          content: Text("This User already Exit!"),
+        )
+        );
+      }
+      else {
+        print(userData);
+      }
+    }
+
+  //   if (response.statusCode == 200) {
+  //   Fluttertoast.showToast(msg: 'Login successful');
+  //   // Navigate to the home page
+  //   Navigator.pushReplacement(
+  //     context,
+  //     MaterialPageRoute(builder: (context) => HomePage()),
+  //   );
+  // } else {
+  //   Fluttertoast.showToast(msg: 'Username and pssword invalid: ${response.statusCode}');
+  //   // Log the response body for debugging purposes
+  //   print(response.body);
+  // }
+
+  // var data = json.decode(response.body);
+  // if (data == "Success") {
+  //   Fluttertoast.showToast(
+  //     msg:
+  //     'Login Successful',
+  //     toastLength: Toast.LENGTH_SHORT,
+  //     gravity: ToastGravity.CENTER,
+  //     timeInSecForIosWeb: 1,
+  //     fontSize: 25, 
+  //     backgroundColor: Colors.green);
+  //   Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage(),),);
+  // } else {
+  //   Fluttertoast.showToast(
+  //     msg:'Username and password invalid',
+  //     toastLength: Toast.LENGTH_SHORT,
+  //     gravity: ToastGravity.CENTER,
+  //     timeInSecForIosWeb: 1,
+  //     fontSize: 25, 
+  //     backgroundColor: Colors.red);
+  // }
    }
 }
 // class  LoginSignup extends StatelessWidget{
