@@ -7,7 +7,7 @@ import 'package:online_printing/screens/login_page.dart';
 import 'package:online_printing/screens/order_page.dart';
 import 'package:online_printing/screens/login_signup.dart';
 
-enum Gender { male, female }
+enum Gender {male, female}
 
 class SignUp extends StatefulWidget {
   @override
@@ -25,6 +25,74 @@ class _SignUpState extends State<SignUp> {
   TextEditingController state = TextEditingController();
   TextEditingController pass = TextEditingController();
   Gender? _character = Gender.male;
+
+    //Registration 
+    Future register(
+    String name, 
+    String gender, 
+    String phone, 
+    String email, 
+    String address1,
+    String address2,
+    String postcode,
+    String state,
+    String pass) async {
+    //ipaddress: 172.18.82.141
+    //var url = Uri.http('https://172.18.82.141/register.php');
+    //http://localhost/flutter_api/register.php
+    var url = Uri.http('localhost', '/flutter_api/register.php');
+    var response = await http.post(url, body: { 
+      "name": name, 
+      "gender": gender,
+      "phone": phone, 
+      "email": email,
+      "addressline1": address1, 
+      "addressline2": address2,
+      "postcode": postcode, 
+      "state": state,
+      "password": pass, });
+
+       if (response.statusCode == 200) {
+      var userData = json.decode(response.body);
+      if (userData == "ERROR"){
+        showDialog(context: (context), 
+        builder: (BuildContext context) {
+      return AlertDialog(
+          title: Text("Message"),
+          content: Text("This User already Exit!"),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text('Close'),
+            ),
+          ],
+        );
+        }
+        );
+      }
+      else {
+        showDialog(context: (context), 
+        builder: (BuildContext context) {
+      return AlertDialog(
+          title: Text("Message"),
+          content: Text("Signup Successful"),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text('Close'),
+            ),
+          ],
+        );
+        }
+        );
+        print(userData);
+      } 
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -286,85 +354,7 @@ class _SignUpState extends State<SignUp> {
     );
   }
 
-  //Registration 
-   void register(
-    String name, 
-    String gender, 
-    String phone, 
-    String email, 
-    String address1,
-    String address2,
-    String postcode,
-    String state,
-    String pass) async {
-    //ipaddress: 172.18.82.141
-    //var url = Uri.http('https://172.18.82.141/register.php');
-    //http://localhost/flutter_api/register.php
-    var url = Uri.http('localhost', '/flutter_api/register.php');
-    var response = await http.post(url, body: { 
-      "name": name, 
-      "gender": gender,
-      "phone": phone, 
-      "email": email,
-      "addressline1": address1, 
-      "addressline2": address2,
-      "postcode": postcode, 
-      "state": state,
-      "password": pass, });
-    // var response = await http.post(url, body: {
-    //   "username": user.text,
-    //   "password": pass.text,
-    // });
-  //   if (response.statusCode == 200) {
-  //   Fluttertoast.showToast(msg: 'Registration successful');
-  //   // Navigate to the home page
-  //   Navigator.pushReplacement(
-  //     context,
-  //     MaterialPageRoute(builder: (context) => LoginSignup()),
-  //   );
-  // } else {
-  //   Fluttertoast.showToast(msg: 'Registration failed: ${response.statusCode}');
-  //   // Log the response body for debugging purposes
-  //   print(response.body);
-  // }
 
-      if (response.statusCode == 200) {
-      var userData = json.decode(response.body);
-      if (userData == "ERROR"){
-        showDialog(context: (context), 
-        builder: (context) => AlertDialog(
-          title: Text("Message"),
-          content: Text("This User already Exit!"),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: Text('Close'),
-            ),
-          ],
-        )
-        );
-      }
-      else {
-        showDialog(context: (context), 
-        builder: (context) => AlertDialog(
-          title: Text("Message"),
-          content: Text("Signup Successful"),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: Text('Close'),
-            ),
-          ],
-        )
-        );
-        print(userData);
-      }
-    }
-  }
 
   // Define a function to show the pop-up dialog
 void _showDialog() {

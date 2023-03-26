@@ -9,10 +9,8 @@ import 'package:http/http.dart' as http;
 import 'package:online_printing/screens/home_page.dart';
 import 'package:online_printing/screens/login_page.dart';
 
-
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
-
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
@@ -169,17 +167,40 @@ class _LoginPageState extends State<LoginPage> {
       "password": pass,
     });
 
+    print(response);
     if (response.statusCode == 200) {
       var userData = json.decode(response.body);
       if (userData == "ERROR"){
         showDialog(context: (context), 
         builder: (context) => AlertDialog(
           title: Text("Message"),
-          content: Text("This User already Exit!"),
+          content: Text("Username and Password invalid!"),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text('Close'),
+            ),
+          ],
         )
         );
       }
       else {
+        showDialog(context: (context), 
+        builder: (context) => AlertDialog(
+          title: Text("Message"),
+          content: Text("Login Successful"),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text('Close'),
+            ),
+          ],
+        )
+        );
         print(userData);
       }
     }
