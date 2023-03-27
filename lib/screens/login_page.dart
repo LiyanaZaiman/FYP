@@ -38,7 +38,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
 
-      int selectedValue = 0; // declare a variable to hold the selected value
+  int selectedValue = 0; // declare a variable to hold the selected value
   var screenSize = MediaQuery.of(context).size;
   _opacity = _scrollPosition < screenSize.height * 0.40
   ?_scrollPosition / (screenSize.height * 0.40) : 1;
@@ -88,7 +88,8 @@ class _LoginPageState extends State<LoginPage> {
                       child: const Text(
                         'Login',
                         style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500,),
-                      )),
+                      ),
+                    ),
                   //Username
                   Padding(
                     padding: const EdgeInsets.all(10),
@@ -160,14 +161,14 @@ class _LoginPageState extends State<LoginPage> {
         );
   }
   //Login
-    void login(String user, String pass) async {
-    var url = Uri.http('localhost', '/flutter_api/login.php');
+    Future <void> login(String user, String pass) async {
+    var url = Uri.http('http://localhost', '/flutter_api/login.php');
     var response = await http.post(url, body: {
       "username": user,
       "password": pass,
     });
 
-    print(response);
+    print("response sini" + response.toString());
     if (response.statusCode == 200) {
       var userData = json.decode(response.body);
       if (userData == "ERROR"){

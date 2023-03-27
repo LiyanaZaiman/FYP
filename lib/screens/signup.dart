@@ -27,7 +27,7 @@ class _SignUpState extends State<SignUp> {
   Gender? _character = Gender.male;
 
     //Registration 
-    Future register(
+    Future<void> register(
     String name, 
     String gender, 
     String phone, 
@@ -52,7 +52,7 @@ class _SignUpState extends State<SignUp> {
       "state": state,
       "password": pass, });
 
-       if (response.statusCode == 200) {
+      if (response.statusCode == 200) {
       var userData = json.decode(response.body);
       if (userData == "ERROR"){
         showDialog(context: (context), 
@@ -353,8 +353,6 @@ class _SignUpState extends State<SignUp> {
       ),
     );
   }
-
-
 
   // Define a function to show the pop-up dialog
 void _showDialog() {

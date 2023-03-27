@@ -12,8 +12,8 @@ class FeaturedTiles extends StatelessWidget {
 
   final List<String> assets = [
     'assets/images/papers.png',
-    'assets/images/hardCover.png',
-    'assets/images/poster.jpg',
+    'assets/images/hardCover.jpg',
+    'assets/images/poster.png',
     //'assets/images/greetingsCard.png',
     //'assets/images/postCards.png',
   ];

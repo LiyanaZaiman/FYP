@@ -1,5 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:online_printing/screens/order_page.dart';
+import 'package:online_printing/screens/aboutUs.dart';
+import 'package:online_printing/screens/home_page.dart';
+import 'package:online_printing/screens/login_page.dart';
+import 'package:online_printing/screens/signup.dart';
+import 'package:online_printing/screens/user_profile.dart';
+import 'package:online_printing/widgets/customer_details.dart';
+import 'package:online_printing/screens/login_signup.dart';
+
+import '../screens/order_page.dart';
 
 class MenuDrawer extends StatefulWidget {
   @override
@@ -38,7 +46,9 @@ class MenuDrawer extends StatefulWidget {
                 ),
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) =>AboutUs()));},
                 child: Text(
                   'About Us',
                   style: TextStyle(color: Colors.white, fontSize: 22),
@@ -52,7 +62,9 @@ class MenuDrawer extends StatefulWidget {
                 ),
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) =>LoginPage()));},
                 child: Text(
                   'Login',
                   style: TextStyle(color: Colors.white, fontSize: 22),
@@ -66,7 +78,9 @@ class MenuDrawer extends StatefulWidget {
                 ),
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) =>SignUp()));},
                 child: Text(
                   'Sign Up',
                   style: TextStyle(color: Colors.white, fontSize: 22),
