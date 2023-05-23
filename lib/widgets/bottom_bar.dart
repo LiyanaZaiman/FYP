@@ -1,6 +1,5 @@
-import 'package:online_printing/widgets/bottom_bar_column.dart';
-import 'package:online_printing/widgets/info_text.dart';
-import 'package:online_printing/widgets/responsive.dart';
+import 'package:online_printing_service/view/widgets/bottom_bar_column.dart';
+import 'package:online_printing_service/view/widgets/info_text.dart';
 import 'package:flutter/material.dart';
 
 class BottomBar extends StatelessWidget {
@@ -41,7 +40,53 @@ class BottomBar extends StatelessWidget {
       child: 
       MediaQuery.of(context).size.width<800?
       Column(
-       children: [], 
+       children: [
+                Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    BottomBarColumn(
+                      heading: 'ABOUT',
+                      s1: 'Contact Us',
+                      s2: 'About Us',
+                      s3: 'Careers',
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Container(
+                        color: Colors.white,
+                        width: 100,
+                        height: 2,
+                      ),
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        InfoText(
+                          type: 'Email',
+                          text: 'onlineprintingservice@gmail.com',
+                        ),
+                        SizedBox(height: 5),
+                        InfoText(
+                          type: 'Address',
+                          text: '128, Trymore Road, Delft, MN - 56124',
+                        )
+                      ],
+                    ),
+                  ],
+                ),
+                Divider(
+                  color: Colors.white,
+                ),
+                SizedBox(height: 20),
+                Text(
+                  'Copyright © 2023 | Choong\'s Printing Shop',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 14,
+                  ),
+                ),
+              ], 
       ):
       Column(
               children: [

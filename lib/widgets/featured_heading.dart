@@ -1,4 +1,4 @@
-import 'package:online_printing/widgets/responsive.dart';
+
 import 'package:flutter/material.dart';
 
 class FeaturedHeading extends StatelessWidget {
@@ -17,36 +17,38 @@ class FeaturedHeading extends StatelessWidget {
         left: screenSize.width / 15,
         right: screenSize.width / 15,
       ),
-      child: screenSize.width <800?Column(
-        children: [
-          Text(
-              'Price and Product List',
-              style: TextStyle(
-                  fontSize: 36,
-                  fontFamily: 'Raleway',
-                  fontWeight: FontWeight.bold,
-                  color:Color(0xFF077bd7)
-              ),
-            ),
-            SizedBox(height: 5,),
-            Text(
-                    'Online Printing Service System',
-                    textAlign: TextAlign.end,
-                  ),
-        ],
-      ):  Row(
+      child: screenSize.width < 800
+          ? Column(
+              children: [
+                Text(
+                  'Price and Product List',
+                  style: TextStyle(
+                      fontSize: 36,
+                      fontFamily: 'Raleway',
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF077bd7)),
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Text(
+                  'Online Printing Service System',
+                  textAlign: TextAlign.end,
+                ),
+              ],
+            )
+          : Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-              Text(
-              'Price and Product List',
-              style: TextStyle(
-                  fontSize: 36,
-                  fontFamily: 'Raleway',
-                  fontWeight: FontWeight.bold,
-                  color:Color(0xFF077bd7)
-              ),
-            ),
+                Text(
+                  'Price and Product List',
+                  style: TextStyle(
+                      fontSize: 36,
+                      fontFamily: 'Raleway',
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF077bd7)),
+                ),
                 Expanded(
                   child: Text(
                     'Online Printing Service System',

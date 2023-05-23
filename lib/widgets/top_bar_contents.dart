@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:online_printing/screens/aboutUs.dart';
-import 'package:online_printing/screens/home_page.dart';
-import 'package:online_printing/screens/login_page.dart';
-import 'package:online_printing/screens/user_profile.dart';
-import 'package:online_printing/widgets/customer_details.dart';
-import 'package:online_printing/screens/login_signup.dart';
+import 'package:online_printing_service/view/customer_page/aboutUs.dart';
+import 'package:online_printing_service/view/home_page.dart';
+import 'package:online_printing_service/view/sign_in/sign_in_page.dart';
+// import 'package:online_printing/screens/login_page.dart';
+import 'package:online_printing_service/view/customer_page/user_profile.dart';
+// import 'package:online_printing/widgets/customer_details.dart';
+import 'package:online_printing_service/view/sign_in/login.dart';
 
-import '../screens/order_page.dart';
+// import '../screens/order_page.dart';
 
 class TopBarContents extends StatefulWidget{
   final double opacity;
@@ -49,7 +50,7 @@ class TopBarContents extends StatefulWidget{
                       'Choong\'s Printing Service',
                       style: TextStyle(
                         color: Color(0xFF077bd7),
-                        fontSize: 23.5,
+                        fontSize: 20,
                         fontFamily: 'Raleway',
                         fontWeight: FontWeight.w900,
                         letterSpacing: 3,
@@ -112,7 +113,7 @@ class TopBarContents extends StatefulWidget{
                   onTap: () {                                        
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(builder: (context) => OrderPage()));
+                      MaterialPageRoute(builder: (context) => SignInPage()));
                       },
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
